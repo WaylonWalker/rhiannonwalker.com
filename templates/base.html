@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="https://dropper.wayl.one/api/file/14802bc4-734a-4e21-9295-a9a5e80045bd.png" type="image/png" />
+        <meta name="og:type" content="website" />
+        <title>{{post.title|e}}</title>
+        {% include 'head.html' %}
+        {% include 'avatar.html' %}
+        {% include 'mermaid.html' %}
+        <script src="/admonition.js"></script>
+        <script src="/fragmention.min.js"></script>
+        <script>
+            document.addEventListener("mouseup", function () {
+                const selectedText = window.getSelection().toString().trim().replace(/\s+/g, "+");
+                console.log(selectedText);
+                if (!selectedText) return;
+                history.replaceState(null, "", `${window.location.pathname}##${selectedText}`);
+            });
+        </script>
+        <script>
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org/",
+                "@type": "WebPage",
+                "name": "{{post.title|e}}",
+                "headline": "{{post.title|e}}",
+                "datePublished": "{{post.date}}",
+                "dateModified": "{{post.date}}",
+                "author": {
+                    "@type": "Person",
+                    "name": "Waylon Walker",
+                    "url": "https://waylonwalker.com"
+                },
+                "image": [
+                    "https://shots.wayl.one/shot/?url={{ config.url }}{{ slug }}/og/&height=600&width=1200&scaled_width=1200&scaled_height=600"
+                ],
+                "speakable":
+                {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [
+                        "#title",
+                        "#post-body"
+                    ]
+                },
+                "url": "{{config.url}}{{slug}}"
+            }
+        </script>
+    </head>
+
+    <body position="relative">
+
+        <!-- <div class="neon-ring"></div> -->
+        <div class="dubs">
+        <!-- <div class="dubs-overlay"></div> -->
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+
+</html>

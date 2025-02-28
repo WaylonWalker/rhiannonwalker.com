@@ -1,0 +1,34 @@
+<div id="title-wrapper">
+    <a class="no-underline u-url" href="https://rhiannonwalker.com/{{ post.slug }}/">
+        <h1 id="title" class="flair blog title no-link">
+            {{ post.title }}
+        </h1>
+    </a>
+    <p class='m-0 sm:m-[-2rem]'>
+        <time class="dt-published post-date" datetime="{{ date }}" style="text-align: right; z-index: 2">{{
+            date
+            }}</time>
+    </p>
+    <div class="flex flex-row h-card p-author space-between" rel="author">
+        <img alt='Rhiannon Walker Profile Picture'
+             class="m-auto m-0 w-16 h-16 rounded-full border-2 u-photo shadow-[0_0_5px_5px_rgba(0,0,0,0.4)]"
+             src="https://dropper.wayl.one/api/file/858c063f-d5ac-45bc-8c01-b347fb01becd.png" />
+        <div class="content">
+            <a class="p-name u-url h-card p-author" rel='me' href="https://rhiannonwalker.com/">
+                <p>
+                    <span class="p-given-name">Rhiannon</span>
+                    <span class="p-family-name">Walker</span>
+                </p>
+            </a>
+            <p class="p-note">
+                One Breath at a Time
+            </p>
+        </div>
+    </div>
+
+    <!-- edit -->
+    <!-- <p> -->
+    <!--     <a href="https://github.com/rhiannonwalker/waylonwalker.com/edit/main/pages/blog/{{ post.slug }}.md" -->
+    <!--         alt="edit post url" title="edit this post">edit<span role="img" aria-label="">✏️</span></a> -->
+    <!-- </p> -->
+</div>

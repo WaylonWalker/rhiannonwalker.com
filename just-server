@@ -1,0 +1,288 @@
+#!/usr/bin/env -S uv run --quiet --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "fastapi",
+#     "uvicorn",
+#     "websockets",
+# ]
+# ///
+
+import asyncio
+from fastapi import FastAPI, WebSocket
+from fastapi.responses import HTMLResponse
+import fcntl
+import os
+import pty
+import struct
+import subprocess
+import termios
+
+app = FastAPI()
+
+
+def get_html_template(title):
+    return f"""<!DOCTYPE html>
+<html class="h-full bg-gray-900">
+<head>
+    <title>{title}</title>
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {{
+            width: 10px;
+            height: 10px;
+        }}
+        
+        ::-webkit-scrollbar-track {{
+            background: #1a1a1a;
+            border-radius: 5px;
+        }}
+        
+        ::-webkit-scrollbar-thumb {{
+            background: #4a4a4a;
+            border-radius: 5px;
+            border: 2px solid #1a1a1a;
+        }}
+        
+        ::-webkit-scrollbar-thumb:hover {{
+            background: #5a5a5a;
+        }}
+
+        /* Terminal styles */
+        #terminal-container {{ 
+            background-color: #1a1a1a;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }}
+        .xterm {{
+            padding: 0.5rem;
+            height: 100% !important;
+        }}
+        .xterm-viewport,
+        .xterm-screen {{
+            height: 100% !important;
+        }}
+        
+        /* Custom scrollbar for terminal */
+        .xterm-viewport::-webkit-scrollbar {{
+            width: 10px;
+        }}
+        
+        .xterm-viewport::-webkit-scrollbar-track {{
+            background: #1a1a1a;
+            border-radius: 5px;
+        }}
+        
+        .xterm-viewport::-webkit-scrollbar-thumb {{
+            background: #4a4a4a;
+            border-radius: 5px;
+            border: 2px solid #1a1a1a;
+        }}
+        
+        .xterm-viewport::-webkit-scrollbar-thumb:hover {{
+            background: #5a5a5a;
+        }}
+    </style>
+</head>
+<body class="h-full bg-gray-900">
+    <div class="min-h-full">
+        <!-- Navigation -->
+        <nav class="bg-gray-800 shadow-sm">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 justify-between">
+                    <div class="flex">
+                        <div class="flex flex-shrink-0 items-center">
+                            <h1 class="text-2xl font-bold text-gray-100">{title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main>
+            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <!-- Recipe list section -->
+                <div class="mb-6">
+                    <h2 class="text-base font-semibold leading-6 text-gray-100 mb-4">Available Recipes</h2>
+                    <div id="recipe-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Recipes will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Terminal section -->
+                <div class="mt-8">
+                    <h2 class="text-base font-semibold leading-6 text-gray-100 mb-4">Output</h2>
+                    <div class="overflow-hidden rounded-lg bg-gray-800 shadow-lg">
+                        <div id="terminal-container" class="h-full"></div>
+                        <div id="execution-status" class="hidden px-4 py-3 bg-gray-700 text-sm text-gray-300 border-t border-gray-600"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let term;
+
+        document.addEventListener("DOMContentLoaded", function () {{
+            console.log("Document fully loaded, initializing terminal and fetching recipes...");
+
+            let terminalContainer = document.getElementById('terminal-container');
+            if (terminalContainer) {{
+                term = new Terminal({{
+                    cols: 132,
+                    rows: 32,
+                    fontSize: 14,
+                    fontFamily: 'Menlo, Monaco, "Courier New", monospace',
+                    lineHeight: 1.2,
+                    cursorBlink: true,
+                    theme: {{
+                        background: '#1a1a1a',
+                        foreground: '#f0f0f0',
+                        cursor: '#f0f0f0',
+                        cursorAccent: '#1a1a1a',
+                        selection: 'rgba(255, 255, 255, 0.3)',
+                    }}
+                }});
+                term.open(terminalContainer);
+                term.resize(132, 32);
+                console.log("Terminal initialized.");
+            }}
+
+            fetchRecipes();
+        }});
+
+        async function fetchRecipes() {{
+            console.log("Fetching recipes...");
+            try {{
+                let response = await fetch('/recipes');
+                let recipes = await response.json();
+                console.log("Recipes received:", recipes);
+
+                let list = document.getElementById('recipe-list');
+                list.innerHTML = '';
+                recipes.forEach(recipe => {{
+                    let button = document.createElement('button');
+                    button.className = 'inline-flex items-center rounded-md bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-100 shadow-sm ring-1 ring-inset ring-gray-600 hover:bg-gray-600 w-full justify-center transition-colors duration-200';
+                    button.innerText = recipe;
+                    button.onclick = () => runRecipe(recipe);
+                    list.appendChild(button);
+                }});
+            }} catch (error) {{
+                console.error("Error fetching recipes:", error);
+            }}
+        }}
+
+        async function runRecipe(recipe) {{
+            if (!term) {{
+                console.error("Terminal not initialized!");
+                return;
+            }}
+            term.clear();
+            document.getElementById('execution-status').classList.add('hidden');
+            
+            let socket = new WebSocket(`ws://${{window.location.host}}/ws/${{recipe}}`);
+            socket.onmessage = (event) => {{
+                term.write(event.data);
+            }};
+            socket.onclose = () => {{
+                document.getElementById('execution-status').classList.remove('hidden');
+                document.getElementById('execution-status').textContent = 'Execution finished.';
+            }};
+        }}
+    </script>
+</body>
+</html>"""
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home():
+    # Get the current directory name
+    current_dir = os.path.basename(os.getcwd())
+    # Capitalize and replace hyphens/underscores with spaces for better display
+    display_name = current_dir.replace("-", " ").replace("_", " ").title()
+    return get_html_template(display_name)
+
+
+@app.get("/recipes")
+async def get_recipes():
+    """Fetch available Just recipes"""
+    result = subprocess.run(["just", "--list"], capture_output=True, text=True)
+    recipes = [
+        line.split()[0]
+        for line in result.stdout.splitlines()
+        if line and not line.startswith("Available")
+    ]
+    return recipes
+
+
+@app.websocket("/ws/{recipe}")
+async def run_recipe(websocket: WebSocket, recipe: str):
+    """Execute a Just recipe and stream output over WebSocket with ANSI colors"""
+    await websocket.accept()
+
+    # Set up environment with wide terminal width
+    env = os.environ.copy()
+    env["TERM"] = "xterm-256color"  # Ensure proper terminal type
+    env["COLUMNS"] = 124
+
+    # Set up pseudo-terminal with specific size
+    master, slave = pty.openpty()
+    # Set terminal size (80x24 is standard)
+    term_size = struct.pack("HHHH", 24, 80, 0, 0)  # rows, cols, xpixels, ypixels
+    fcntl.ioctl(slave, termios.TIOCSWINSZ, term_size)
+
+    process = await asyncio.create_subprocess_shell(
+        f"just {recipe}",
+        stdin=slave,
+        stdout=slave,
+        stderr=slave,
+        close_fds=True,
+        preexec_fn=os.setsid,
+    )
+
+    os.close(slave)  # Close the slave end after spawning the process
+
+    async def read_from_master():
+        while True:
+            try:
+                data = os.read(master, 1024)
+                if not data:
+                    break
+                try:
+                    await websocket.send_text(data.decode("utf-8", errors="replace"))
+                except UnicodeError:
+                    # If we can't decode as UTF-8, send raw bytes
+                    await websocket.send_bytes(data)
+            except (OSError, IOError):
+                break
+
+    await read_from_master()
+    await process.wait()
+    os.close(master)
+    await websocket.close()
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
+@app.get("/ready")
+def readiness_check():
+    return {"status": "ready"}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    import sys
+
+    if len(sys.argv) > 1:
+        port = int(sys.argv[1])
+        uvicorn.run(app, host="0.0.0.0", port=port)
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)

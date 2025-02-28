@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/8bitcc.ico" type="image/png" />
+        <link rel="preload" href="/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link rel="stylesheet" href="/app.css" />
+        </noscript>
+
+    <!-- background-image: url("data:image/svg+xml,%3Csvg xmlns='https://www.w3.org/2000/svg' width='10%' height='10%' %3E%3Cdefs%3E%3Cpattern id='bg' patternUnits='userSpaceOnUse' width='1920' height='1440'%3E%3Cpath fill='%23A5EF8B' d='M0 1036.8L0 0L329.76 0C329.76 182.88 332.64 385.92 332.64 568.8L616.32 570.24L607.68 0L1176.48 0L1177.92 574.56L1381 574.099L1385.28 0L1843.2 0L1843.2 1036.8Z'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%' height='100%' fill='url(%23bg)'/%3E%3C/svg%3E"); -->
+        <style></style>
+    </head>
+
+    <body position="relative">
+        <div class="neon-ring"></div>
+        <div class="dubs">
+            <nav class="z-10">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/archive/">Archive</a></li>
+                    <li>
+                        <a aria-label="RSS" href="/rss.xml">
+                            <svg class="icon" height="16" viewbox="0 0 24 24" width="16" xmlns="https://www.w3.org/2000/svg">
+                                <path
+                                    d="M 4 4.44 v 2.83 c 7.03 0 12.73 5.7 12.73 12.73 h 2.83 c 0 -8.59 -6.97 -15.56 -15.56 -15.56 Z m 0 5.66 v 2.83 c 3.9 0 7.07 3.17 7.07 7.07 h 2.83 c 0 -5.47 -4.43 -9.9 -9.9 -9.9 Z M 6.18 15.64 A 2.18 2.18 0 0 1 6.18 20 A 2.18 2.18 0 0 1 6.18 15.64"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <article class="blog-post h-entry">
+                <div id="title-wrapper">
+                    <a class="u-url" href="https://waylonwalker.com/2-minutes-to-stow/">
+                        <h1 class="flair" id="title" style="">2 Minutes To Stow</h1>
+                    </a>
+                    <p>
+                        <time class="dt-published post-date" datetime="2022-01-09"
+                              style="text-align: right; z-index: 2">2022-01-09</time>
+                    </p>
+                    <div class="h-card p-author" rel="author">
+                        <a class="p-name u-url" href="https://waylonwalker.com/">
+                            <p>
+                                <span class="p-given-name">Waylon</span>
+                                <span class="p-family-name">Walker</span>
+                            </p>
+                        </a>
+                        <p class="p-note">
+                            Learning in Public
+                            <a href="https://twitter.com/_WaylonWalker">@_WaylonWalker</a>
+                        </p>
+                    </div>
+                <!-- edit -->
+                <!-- <p> -->
+                <!--     <a alt="edit post url" -->
+                <!--         href="https://github.com/WaylonWalker/waylonwalker.com/edit/main/pages/blog/2-minutes-to-stow.md" -->
+                <!--         title="edit this post">edit<span aria-label="" role="img">✏️</span></a> -->
+                <!-- </p> -->
+                </div>
+                <div data-pagefind-body="" id="post-body" class="post-body">
+                    <p>
+                        Stow is an incredible way to manage your dotfiles. It works by
+                        managing symlinks between your dotfiles directory and the rest of
+                        the system. You can then make your dotfiles directory a git repo and
+                        have it version controlled. In my honest opinion, when I was trying
+                        to get started the docs straight into deep detail of things I
+                        frankly don't really care about and jumped right over how to use it.
+                    </p>
+                    <p>
+                        When using stow its easiest to keep your dotfiles directory (you may
+                        name it what you want) in your home directory, with application
+                        directories inside of it.
+                    </p>
+                    <p>
+                        Then each application directory should reflet the same diretory
+                        structure as you want in your home directory.
+                    </p>
+                    <h2>
+                        zsh<a alt="id" class="heading-permalink" href="#None" title="link to #None"><span
+                            class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false"
+                                                                height="1em" viewBox="0 0 24 24" width="1em" xmlns="https://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z">
+                                </path>
+                            </svg></a>
+                    </h2>
+                    <p>Here is a simple example with my zshrc.</p>
+                <pre class="wrapper">
+
+                    <div class="copy-wrapper">
+
+
+
+
+
+                        <button class="copy"
+                            onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('pre').textContent)"
+                            title="copy code to clipboard"><svg id="Layer_1"
+                                style="enable-background:new 0 0 115.77 122.88" version="1.1"
+                                viewbox="0 0 115.77 122.88" x="0px" y="0px" xml:space="preserve"
+                                xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z">
+                                    </path>
+                                </g>
+                            </svg></button>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><span></span>mkdir<span class="w"> </span>~/dotfiles
+                            <span class="nb">cd</span><span class="w"> </span>~/dotfiles
+                            mkdir<span class="w"> </span>zsh
+                            mv<span class="w"> </span>~/.zshrc<span class="w"> </span>zsh
+                            stow<span class="w"> </span>--simulate<span class="w"> </span>zsh
+                        </pre>
+                </div>
+
+            </pre>
+            <p>
+                You can pass in the --simulate if you wish, it will tell you if
+                there are going to be any more errors or not, but it wont give much
+                more than that.
+            </p>
+                <pre class="wrapper">
+
+                    <div class="copy-wrapper">
+
+                        <button class="copy"
+                            onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('pre').textContent)"
+                            title="copy code to clipboard"><svg id="Layer_1"
+                                style="enable-background:new 0 0 115.77 122.88" version="1.1"
+                                viewbox="0 0 115.77 122.88" x="0px" xml:space="preserve"
+                                xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" y="0px">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z">
+                                    </path>
+                                </g>
+                            </svg></button>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><span></span>WARNING: in simulation mode so not modifying filesystem.
+                        </pre>
+        </div>
+
+    </pre>
+    <p>Once your ready you can stow your zsh application.</p>
+                <pre class="wrapper">
+
+                    <div class="copy-wrapper">
+
+                        <button class="copy"
+                            onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('pre').textContent)"
+                            title="copy code to clipboard"><svg id="Layer_1"
+                                style="enable-background:new 0 0 115.77 122.88" version="1.1"
+                                viewbox="0 0 115.77 122.88" x="0px" xml:space="preserve"
+                                xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" y="0px">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z">
+                                    </path>
+                                </g>
+                            </svg></button>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><span></span>stow zsh
+                        </pre>
+</div>
+
+</pre>
+<h2>
+    nvim<a alt="id" class="heading-permalink" href="#None" title="link to #None"><span
+        class="visually-hidden"></span><svg aria-hidden="true" fill="currentColor" focusable="false"
+                                            height="1em" viewBox="0 0 24 24" width="1em" xmlns="https://www.w3.org/2000/svg">
+            <path
+                d="M9.199 13.599a5.99 5.99 0 0 0 3.949 2.345 5.987 5.987 0 0 0 5.105-1.702l2.995-2.994a5.992 5.992 0 0 0 1.695-4.285 5.976 5.976 0 0 0-1.831-4.211 5.99 5.99 0 0 0-6.431-1.242 6.003 6.003 0 0 0-1.905 1.24l-1.731 1.721a.999.999 0 1 0 1.41 1.418l1.709-1.699a3.985 3.985 0 0 1 2.761-1.123 3.975 3.975 0 0 1 2.799 1.122 3.997 3.997 0 0 1 .111 5.644l-3.005 3.006a3.982 3.982 0 0 1-3.395 1.126 3.987 3.987 0 0 1-2.632-1.563A1 1 0 0 0 9.201 13.6zm5.602-3.198a5.99 5.99 0 0 0-3.949-2.345 5.987 5.987 0 0 0-5.105 1.702l-2.995 2.994a5.992 5.992 0 0 0-1.695 4.285 5.976 5.976 0 0 0 1.831 4.211 5.99 5.99 0 0 0 6.431 1.242 6.003 6.003 0 0 0 1.905-1.24l1.723-1.723a.999.999 0 1 0-1.414-1.414L9.836 19.81a3.985 3.985 0 0 1-2.761 1.123 3.975 3.975 0 0 1-2.799-1.122 3.997 3.997 0 0 1-.111-5.644l3.005-3.006a3.982 3.982 0 0 1 3.395-1.126 3.987 3.987 0 0 1 2.632 1.563 1 1 0 0 0 1.602-1.198z">
+            </path>
+        </svg></a>
+</h2>
+<p>
+    A slightly more complicated example is neovim since its diretory
+    structure does not put configuration files directly in your home
+    directory, but rather at a deeper level.
+</p>
+                <pre class="wrapper">
+
+                    <div class="copy-wrapper">
+
+                        <button class="copy"
+                            onclick="navigator.clipboard.writeText(this.parentElement.parentElement.querySelector('pre').textContent)"
+                            title="copy code to clipboard"><svg id="Layer_1"
+                                style="enable-background:new 0 0 115.77 122.88" version="1.1"
+                                viewbox="0 0 115.77 122.88" x="0px" xml:space="preserve"
+                                xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" y="0px">
+                                <style type="text/css">
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                    }
+                                </style>
+                                <g>
+                                    <path class="st0"
+                                        d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z">
+                                    </path>
+                                </g>
+                            </svg></button>
+                    </div>
+
+                    <div class="highlight">
+                        <pre><span></span>mkdir<span class="w"> </span>~/dotfiles/nvim/.config/nvim/<span class="w">
+                            </span>-p
+                            <span class="nb">cd</span><span class="w"> </span>~/dotfiles
+                            mv<span class="w"> </span>~/.config/nvim/<span class="w">
+                            </span>~/dotfiles/nvim/.config/nvim/
+                            stow<span class="w"> </span>zsh
+                        </pre>
+</div>
+
+</pre>
+<blockquote>
+    <p>
+        !notice how the nvim directory inside of dotfiles is structured
+        like it would be in your $HOME directory.
+    </p>
+</blockquote>
+</div>
+<div hx-get="https://thoughts.waylonwalker.com/posts/html/" hx-swap="outerHTML" hx-target="#posts"
+     hx-trigger="load" id="posts"></div>
+<hr />
+<div id="show"></div>
+</article>
+<footer>
+    <ul class="social">
+        <li>
+            <a href="https://twitter.com/_WaylonWalker">twitter</a>
+        </li>
+        <li>
+            <a href="https://youtube.com/waylonwalker">youtube</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/channel/UCHuxc1HRsd3aRjvL6C817tQ">gaming-youtube</a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/waylonwalker/">LinkedIn</a>
+        </li>
+        <li>
+            <a href="https://github.com/WaylonWalker">GitHub</a>
+        </li>
+        <li>
+            <a href="https://dev.to/waylonwalker">Dev.to</a>
+        </li>
+        <li>
+            <a href="https://www.twitch.tv/waylonwalker">twitch</a>
+        </li>
+    </ul>
+    <p>© 2022 - 2023</p>
+</footer>
+</div>
+</body>
+
+</html>

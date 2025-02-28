@@ -1,0 +1,27 @@
+<li class="px-4 mx-0 post group h-entry hentry list-none">
+    <a href="/{{markata.config.path_prefix}}{{ post.slug }}/" class="u-url" rel="bookmark">
+        <p class="p-0 m-0 p-name entry-title text-base group-hover:text-yellow-500 flex flex-row flex-wrap">
+            the template is {{ post.templateKey }}
+
+
+            {{ feed.config.card_template }}
+            {% if post.templateKey == 'thought' %}
+                <img src='https://avatars.wayl.one/avatar/{{ post.link }}'/>
+            {% endif %}
+            {{ post.title[:50] }}...
+            {{ post.title[:50] }}
+            {% if post.title | length > 50 %}
+                ...
+            {% endif %}
+
+            the time
+
+            <time class="dt-published published font-normal pl-4 m-0 p-0 text-white/60 group-hover:text-white"
+                  datetime="{{ post.date }}">
+                this is the time
+
+                {{ post.date.year }}-{{ post.date.month }}-{{ post.date.day }}
+            </time>
+        </p>
+    </a>
+</li>

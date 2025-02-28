@@ -1,0 +1,328 @@
+#
+#  __  __            _         _         _                  _
+# |  \/  | __ _ _ __| | ____ _| |_ __ _ | |_ ___  _ __ ___ | |
+# | |\/| |/ _` | '__| |/ / _` | __/ _` || __/ _ \| '_ ` _ \| |
+# | |  | | (_| | |  |   < (_| | || (_| || || (_) | | | | | | |
+# |_|  |_|\__,_|_|  |_|\_\__,_|\__\__,_(_)__\___/|_| |_| |_|_|
+#
+#                                           rhiannonwalker.com
+
+[markata.jinja_env]
+templates_dir = ["templates"]  # Additional template paths to search
+
+[markata]
+# bump site version to bust GitHub actions cache
+site_version = 31
+markdown_backend='markdown-it-py'
+templates_dir = "templates"
+
+# 2 weeks in seconds
+default_cache_expire = 1209600
+
+## Markata Setup
+
+output_dir = "markout"
+assets_dir = "static"
+hooks = [
+    # 'plugins.vega_lite',
+    'plugins.mermaid',
+    'plugins.md_video',
+    'plugins.post_model',
+    'plugins.thoughts',
+    "plugins.wikilink_hover",
+    # "plugins.abbreviations",
+    # "plugins.boosted_link",
+    "plugins.permalink_aria",
+    # "plugins.tag_aggregator",
+    # "plugins.generate_feed_conf",
+    # 'plugins.server',
+    "markata.plugins.publish_source",
+    # "markata.plugins.publish_dev_to_source",
+    # "markata.plugins.prevnext",
+    # "plugins.render_template_variables",
+    # # "plugins.codeblocks",
+    # "plugins.index",
+    # "plugins.slug",
+    # "plugins.one_line_link",
+    # "plugins.include",
+    # 'markata.plugins.analytics',
+    # "markata.plugins.jinja_md",
+    "default",
+    # "plugins.related",
+    # "plugins.seo_amp",
+    # "plugins.custom_seo",
+    # "plugins.rss_tag",
+
+    #might need these, but they are not importing
+    # "plugins.publish_amp",
+    # "plugins.gif_to_mp4",
+    "plugins.youtube",
+    # "plugins.auto_publish",
+    # "markata.plugins.service_worker",
+]
+disabled_hooks = [
+    "markata.plugins.covers",
+    "markata.plugins.heading_link",
+    "markata.plugins.seo",
+    "markata.plugins.rss",
+    "markata.plugins.to_json",
+    "markata.plugins.sitemap",
+    # "markata.plugins.feed",
+
+    # "markata.plugins.manifest",
+    # "markata.plugins.flat_slug"
+]
+
+
+
+## Site Config
+url = "https://rw.wayl.one"
+covers_url = "https://covers.rhiannonwalker.com"
+title = "Rhiannon Walker"
+description = "One Breath at a Time"
+rss_description = "Rhiannon Walkers posts"
+author_name = "Rhiannon Walker"
+author_email = "rhiannon@rhiannonwalker.com"
+icon = "8bitcc.png"
+lang = "en"
+theme_color = "#322D39"
+background_color = "#B73CF6"
+start_url = "/"
+site_name = "Rhiannon Walker"
+short_name = "ww"
+display = "minimal-ui"
+
+precache_urls = [
+    "8bitcc.ico",
+    "archive",
+    "archive-styles.css",
+    "furo-purge.min.css",
+    "main.min.css",
+    "manifest.json",
+    "one-dark.min.css",
+    "scroll.css",
+]
+
+# post_template = "post.html"
+
+[markata.post_template]
+index = "post.html"
+og = "og.html"
+
+# markdown_it flavor
+[markata.markdown_it_py]
+config = 'gfm-like'
+# markdown_it built-in plugins
+enable = ["table"]
+
+# add custom markdown_it plugins
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.admon:admon_plugin"
+
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.attrs:attrs_plugin"
+config = { spans = true }
+
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.attrs:attrs_block_plugin"
+
+[[markata.markdown_it_py.plugins]]
+plugin = "markata.plugins.mdit_details:details_plugin"
+
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.anchors:anchors_plugin"
+config = { permalink = true, permalinkSymbol = "#" }
+
+[[markata.markdown_it_py.plugins]]
+plugin = "markata.plugins.md_it_wikilinks:wikilinks_plugin"
+config = { markata = "markata" }
+
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.tasklists:tasklists_plugin"
+
+[markata.markdown_it_py.plugins.config]
+enabled = true
+
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.emoji:emoji_plugin"
+#
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.keys:keys_plugin"
+#
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.subscript:subscript_plugin"
+#
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.superscript:superscript_plugin"
+#
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.mark:mark_plugin"
+
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.container:container_plugin"
+[markata.markdown_it_py.plugins.config]
+name = "container"
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.container:container_plugin"
+[markata.markdown_it_py.plugins.config]
+name = "warning"
+[[markata.markdown_it_py.plugins]]
+plugin = "mdit_py_plugins.container:container_plugin"
+[markata.markdown_it_py.plugins.config]
+name = ""
+# [[markata.markdown_it_py.plugins]]
+# plugin = "plugins.abbreviations:abbreviations_plugin"
+
+[markata.nav]
+'home' = '/'
+'start here' = '/start'
+
+
+[markata.glob]
+glob_patterns = "pages/**/*.md"
+# glob_patterns = "pages/sample.md"
+
+
+[markata.auto_description.description]
+len = 160
+[markata.auto_description.long_description]
+len = 250
+[markata.auto_description.super_description]
+len = 500
+[markata.auto_publish.filters]
+til = "templateKey=='til' and date<=today and not published"
+
+[[markata.head.text]]
+value = "<title>{{ post.title|e }}</title>"
+
+[[markata.head.link]]
+href='/app-50.css'
+rel='stylesheet'
+
+[[markata.head.meta]]
+name = "twitter:title"
+content = "{{ post.title|e }}"
+
+[[markata.head.meta]]
+property = "og:title"
+content = "{{ post.title|e }}"
+
+[[markata.head.meta]]
+name = "description"
+content = "{{ post.description|e }}"
+
+[[markata.head.meta]]
+property = "og:description"
+content = "{{ post.description|e }}"
+
+[[markata.head.meta]]
+name = "twitter:description"
+content = "{{ post.description|e }}"
+
+[[markata.head.meta]]
+property = "og:type"
+content = "article"
+
+[[markata.head.link]]
+href = "{{ config.url }}{{ post.slug }}/"
+rel = "canonical"
+
+[[markata.head.link]]
+href = "{{ config.url }}{{ post.slug }}/amp/"
+rel = "amphtml"
+
+# [[markata.head.script]]
+# src='/htmx.min.js'
+# async = true
+
+[[markata.head.meta]]
+property = "og:url"
+content = "{{ config.url }}{{ post.slug }}/"
+
+[[markata.head.meta]]
+property = "og:image"
+content = "https://shots.wayl.one/shot/?url={{ config.url }}{{ post.slug }}/og/&height=600&width=1200&scaled_width=1200&scaled_height=600"
+
+[[markata.head.meta]]
+name = "twitter:image"
+content = "https://shots.wayl.one/shot/?url={{ config.url }}{{ post.slug }}/og/&height=640&width=1280&scaled_width=1280&scaled_height=640"
+
+[[markata.head.meta]]
+name = "twitter:image:alt"
+content = "{{ post.title|e }}"
+
+[[markata.head.meta]]
+property = "og:image:width"
+content = '1200'
+
+[[markata.head.meta]]
+property = "og:image:height"
+content = '600'
+
+
+[[markata.head.meta]]
+name = "twitter:card"
+content = "summary_large_image"
+
+[[markata.head.meta]]
+property = "og:author"
+content = "Rhiannon Walker"
+
+[[markata.head.meta]]
+property = "og:site_name"
+content = "Rhiannon Walker"
+
+[[markata.head.meta]]
+property = "og:author_email"
+content = "rhiannon@rhiannonwalker.com"
+
+[[markata.head.meta]]
+name = "generator"
+content = "markata {{ __version__ }}"
+
+[[markata.head.meta]]
+name = "monetization"
+content = "$ilp.uphold.com/MGN2ni2YMXaQ"
+
+[[ markata.head.link ]]
+href = "https://indieauth.com/auth"
+rel = "authorization_endpoint"
+
+[[ markata.head.link ]]
+href = "https://tokens.indieauth.com/token"
+rel = "token_endpoint"
+
+[[ markata.head.link ]]
+href = "{{ config.url }}{{ post.slug }}/amp"
+rel = "amphtml"
+
+[[ markata.head.link ]]
+href = "{{ config.url }}archive"
+rel = "micropub"
+
+[[ markata.head.link ]]
+href = "https://webmention.io/rhiannonwalker.com/webmention"
+rel = "webmention"
+
+[[markata.head.meta]]
+name = "theme-color"
+content = "#322D39"
+
+[markata.prevnext]
+prevnext_color_angle = "#ff66c4"
+
+[[markata.feeds]]
+slug = 'archive'
+sort = "date"
+reverse = true
+description = 'All of the posts on my site'
+
+[markata.summary]
+grid_attr = ['tags', 'series']
+
+
+[ markata.analytics ]
+contributions_max_post_scale = 5
+contributions_cmap = "rocket"
+filter = "date<=today and published"
+
