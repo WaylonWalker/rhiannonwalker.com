@@ -11,6 +11,7 @@ title: <%*
   tR += title + '\n'; // Add the title to the template result
 -%>
 published: true
+published: true
 tags:
   -
 ---
