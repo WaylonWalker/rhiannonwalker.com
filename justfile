@@ -11,8 +11,16 @@ venv:
     uv pip install -r requirements.txt
     fi
 
-clean: venv
-    ./.venv/bin/markata clean
+install-tailwind:
+    #!/bin/bash
+    if [ ! -d "node_modules" ]; then
+    npm install
+    fi
+
+setup: venv install-tailwind
+
+clean:
+    rm -rf output .markata
 
 pwd:
     pwd
@@ -20,28 +28,32 @@ ls:
     ls ./.venv/bin
 
 build: clean
-    just tailwind
-    ./.venv/bin/markata build
-    just dev
+    markata-go build
+
+build-fast:
+    markata-go build --fast
+
+build-clean:
+    markata-go build --clean
+
+build-container:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    version=$(cat version)
+    podman build -t registry.wayl.one/rhiannonwalker-com -t registry.wayl.one/rhiannonwalker-com:$version -f container/Containerfile .
+    podman push registry.wayl.one/rhiannonwalker-com
+    podman push registry.wayl.one/rhiannonwalker-com:$version
 
 watch:
-    uvx watchfiles "just build" pages
+    markata-go serve --fast --host 0.0.0.0 --port 8005
 
 
-serve: venv
-    python -m http.server -b 0.0.0.0 8005 -d markout
+serve:
+    markata-go serve --host 0.0.0.0 --port 8005
 tailwind:
     tailwindcss --input tailwind/app.css --output static/app-{{version}}.css --minify
 tailwind-dev:
     tailwindcss --input tailwind/app.css --output markout/app-{{version}}.css --minify
-
-deploy:
-    #!/usr/bin/env bash
-    set -euxo pipefail
-    version=$(cat version)
-    podman build -t registry.wayl.one/waylonwalker-com -t registry.wayl.one/waylonwalker-com:$version .
-    podman push registry.wayl.one/waylonwalker-com
-    podman push registry.wayl.one/waylonwalker-com:$version
 
 compile:
   uv pip compile requirements.in -o requirements.txt --refresh

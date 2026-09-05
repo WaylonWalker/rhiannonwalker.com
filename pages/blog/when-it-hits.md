@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: When it Hits, IT HITS!!!
 published: true
 date: 2017-01-02

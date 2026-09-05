@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Becoming an All-star!
 published: true
 date: 2017-01-30

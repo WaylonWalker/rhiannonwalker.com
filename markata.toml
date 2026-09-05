@@ -76,7 +76,7 @@ disabled_hooks = [
 
 
 ## Site Config
-url = "https://rw.wayl.one"
+url = "https://rhiannonwalker.com"
 covers_url = "https://covers.rhiannonwalker.com"
 title = "Rhiannon Walker"
 description = "One Breath at a Time"
@@ -325,4 +325,3 @@ grid_attr = ['tags', 'series']
 contributions_max_post_scale = 5
 contributions_cmap = "rocket"
 filter = "date<=today and published"
-

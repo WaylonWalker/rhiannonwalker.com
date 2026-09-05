@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 title: Embracing The Choas
 published: true
 date: 2018-10-11T04:18:15.694Z

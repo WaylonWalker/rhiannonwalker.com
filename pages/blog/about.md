@@ -2,12 +2,11 @@
 title: Rhiannon's Life
 tags:
 - blog
-date: 2023-07-08T00:00:00
+date: 2023-07-08
 description: 'We are a mid-30s couple with two kids.  My husband, son, and daughter
   are all neurodivergent which gives them superpowers.  I on the other hand try to
   navigate '
 published: true
-templateKey: blog-post
 ---
 
 <!-- <img src="https://dropper.wayl.one/api/file/048a0b5d-c69b-4bd8-9b57-77a25fac3ec6.png" alt="Rhiannon Demoing The Kitchen" style="border-radius:100%; aspect-ratio: 1; object-fit:cover;width:250px; float:right;"/> -->

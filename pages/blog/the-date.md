@@ -2,9 +2,8 @@
 title: The Date has Been Set
 tags:
 - blog
-templateKey: 'blog-post'
 published: true
-date: 12/17/2016
+date: 2016-12-17
 ---
 
 _December 17, 2016_

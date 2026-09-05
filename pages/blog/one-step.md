@@ -2,7 +2,7 @@
 title: 2 Steps Forward, 1 Step Back
 tags:
 - blog
-templateKey: 'blog-post'
+published: true
 date: 2017-04-26
 ---
 

@@ -1,0 +1,124 @@
+# markata-go configuration for rhiannonwalker.com.
+# The legacy Python Markata configuration remains in markata.toml for
+# migration reference. The new build uses the embedded default theme, with a
+# site-specific post template to keep synthetic 404 metadata valid.
+
+[markata-go]
+title = "Rhiannon Walker"
+description = "One Breath at a Time"
+url = "https://rhiannonwalker.com"
+author = "Rhiannon Walker"
+author_url = "https://rhiannonwalker.com"
+language = "en"
+license = false
+output_dir = "output"
+assets_dir = "static"
+templates_dir = "templates-go"
+hooks = ["default"]
+
+[markata-go.glob]
+patterns = ["pages/**/*.md"]
+use_gitignore = true
+
+[markata-go.markdown]
+extensions = ["tables", "strikethrough", "tasklist"]
+
+[markata-go.layout]
+name = "blog"
+
+[markata-go.theme]
+palette = "rose-pine-moon"
+fontpack = "system"
+
+[markata-go.post_formats]
+html = true
+markdown = true
+text = true
+ansi = false
+og = true
+
+[[markata-go.nav]]
+label = "Home"
+url = "/"
+
+[[markata-go.nav]]
+label = "About"
+url = "/about/"
+
+[[markata-go.nav]]
+label = "Archive"
+url = "/archive/"
+
+[[markata-go.nav]]
+label = "Projects"
+url = "/projects/"
+
+[[markata-go.feeds]]
+slug = "archive"
+title = "Archive"
+description = "Rhiannon's writing"
+filter = "published == true and ((path.startswith('pages/blog/') and slug != 'index' and slug != 'about') or path.startswith('pages/project/'))"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+
+[[markata-go.feeds]]
+slug = "blog"
+title = "Rhiannon's Life"
+description = "Stories from Rhiannon's life"
+filter = "published == true and path.startswith('pages/blog/') and slug != 'index' and slug != 'about'"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+
+[[markata-go.feeds]]
+slug = "projects"
+title = "Projects"
+description = "Quilting and other projects"
+filter = "published == true and path.startswith('pages/project/')"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+
+[markata-go.search]
+backend = "bleve"
+endpoint = "/api/search"
+
+[markata-go.search.bleve]
+fuzzy = false
+limit = 20
+max_limit = 100
+cors_origins = ["*"]
+
+[markata-go.seo]
+default_image = "https://dropper.wayl.one/api/file/858c063f-d5ac-45bc-8c01-b347fb01becd.png"
+author_image = "https://dropper.wayl.one/api/file/858c063f-d5ac-45bc-8c01-b347fb01becd.png"
+og_image_service = "https://shots.wayl.one/shot/"
+
+[markata-go.webmention]
+enabled = true
+endpoint = "https://webmention.io/rhiannonwalker.com/webmention"
+
+[markata-go.indieauth]
+enabled = true
+authorization_endpoint = "https://indieauth.com/auth"
+token_endpoint = "https://tokens.indieauth.com/token"
+
+[markata-go.blogroll]
+enabled = false
+
+[markata-go.mentions]
+enabled = false
+
+[markata-go.tailwind]
+build = false
+
+[[markata-go.head.meta]]
+name = "monetization"
+content = "$ilp.uphold.com/MGN2ni2YMXaQ"

@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: The Hard Days Have Begun
 published: true
 date: 2016-12-05

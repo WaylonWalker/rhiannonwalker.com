@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: What a day/week
 published: true
 date: 2017-03-15

@@ -1,7 +1,7 @@
 ---
-templateKey: blog-post
 title: Waylon's Wooden Quilt
 date: 2018-09-23T02:11:43.889Z
+published: true
 description: First Quilt I did on my own from start to finish.
 tags:
   - Husbandquilt

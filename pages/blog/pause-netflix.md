@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: When to Pause Netflix
 published: true
 date: 2018-01-04

@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Universe I am in need of a BREAK!!
 published: true
 date: 2017-03-24

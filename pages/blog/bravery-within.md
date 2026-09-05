@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: The Bravery Within
 published: true
 date: 2018-03-19

@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Just Another Crazy Month
 published: true
 date: 2017-06-04

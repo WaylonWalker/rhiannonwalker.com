@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: I am surviving with Cancer, is breathing really so much to ask?
 published: true
 date: 2017-05-05

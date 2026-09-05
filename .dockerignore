@@ -1,0 +1,7 @@
+.venv
+node_modules
+markout
+.markata.cache
+.markata
+output
+static/markata-tailwind.css

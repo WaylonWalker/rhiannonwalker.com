@@ -2,7 +2,6 @@
 title: A Letter to my Mom...
 tags:
 - blog
-templateKey: 'blog-post'
 published: true
 date: 2017-02-10
 ---

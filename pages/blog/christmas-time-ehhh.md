@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Christmas Time ehhh
 published: true
 date: 2016-12-11

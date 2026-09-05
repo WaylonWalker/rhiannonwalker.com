@@ -2,7 +2,6 @@
 title: Denied for Disability
 tags:
 - blog
-templateKey: 'blog-post'
 published: true
 date: 2018-03-27
 ---

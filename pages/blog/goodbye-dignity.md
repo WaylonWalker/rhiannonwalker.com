@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Goodbye Dignity
 published: true
 date: 2018-02-08

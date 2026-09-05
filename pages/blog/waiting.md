@@ -2,7 +2,6 @@
 title: Waiting
 tags:
 - blog
-templateKey: 'blog-post'
 published: true
 date: 2016-11-30
 ---

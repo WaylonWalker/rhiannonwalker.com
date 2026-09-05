@@ -1,7 +1,7 @@
 ---
-templateKey: blog-post
 title: Grandpa's Cabin
 date: 2018-09-23T02:11:43.889Z
+published: true
 description: Real Photo transformed into an Applique Wall Hanging
 tags:
   - carcinoid

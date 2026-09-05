@@ -1,7 +1,7 @@
 ---
-templateKey: blog-post
 title: Woodland Applique
 date: 2018-09-24T02:57:59.971Z
+published: true
 description: First Applique Project
 tags:
   - >-

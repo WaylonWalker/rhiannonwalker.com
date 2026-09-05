@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: The Boulder and Me
 published: true
 date: 2018-04-02

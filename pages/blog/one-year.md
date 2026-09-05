@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Surviving one year at a time...
 published: true
 date: 2017-03-03

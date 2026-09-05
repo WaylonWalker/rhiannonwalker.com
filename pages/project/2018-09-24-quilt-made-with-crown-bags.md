@@ -1,7 +1,7 @@
 ---
-templateKey: blog-post
 title: Crown Bags Quilt
 date: 2018-09-24T17:19:39.313Z
+published: true
 description: Re-purposing Crown Royal Bags
 tags:
   - Hand-quilted

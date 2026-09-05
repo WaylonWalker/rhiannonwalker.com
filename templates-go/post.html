@@ -1,0 +1,56 @@
+{# Keep the embedded post layout and override only its metadata block. #}
+{% extends "embedded:post.html" %}
+
+{% block meta %}
+<title>{% block title %}{{ post.title_text }} | {{ config.title | default:'My Site' }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ post.description | default:'' }}{% endblock %}">
+
+{% if post.slug != "404" %}
+<link rel="canonical" href="{{ config.url }}{{ post.href }}">
+
+{% if config.post_formats.markdown %}
+<link rel="alternate" type="text/markdown" title="Markdown Source" href="/{{ post.slug }}.md">
+{% endif %}
+{% if config.post_formats.text %}
+<link rel="alternate" type="text/plain" title="Plain Text" href="/{{ post.slug }}.txt">
+{% endif %}
+{% if config.post_formats.og %}
+<link rel="alternate" type="text/html" title="Social Card" href="{{ post.href }}og/">
+{% endif %}
+{% endif %}
+
+{% if post.structured_data.jsonld %}
+<script type="application/ld+json">
+{{ post.structured_data.jsonld | safe }}
+</script>
+{% endif %}
+
+{% if post.slug == "404" %}
+<meta property="og:title" content="{{ post.title_text }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ config.url }}/404/">
+{% elif post.structured_data.opengraph %}
+{% for meta in post.structured_data.opengraph %}
+<meta property="{{ meta.property }}" content="{{ meta.content }}">
+{% endfor %}
+{% else %}
+<meta property="og:title" content="{{ post.title_text }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ config.url }}{{ post.href }}">
+{% if post.description %}
+<meta property="og:description" content="{{ post.description }}">
+{% endif %}
+{% if post.date %}
+<meta property="article:published_time" content="{{ post.date | atom_date }}">
+{% endif %}
+{% if config.post_formats.og %}
+<meta property="og:image" content="{{ config.url }}{{ post.href }}og/">
+{% endif %}
+{% endif %}
+
+{% if post.structured_data.twitter %}
+{% for meta in post.structured_data.twitter %}
+<meta name="{{ meta.name }}" content="{{ meta.content }}">
+{% endfor %}
+{% endif %}
+{% endblock %}

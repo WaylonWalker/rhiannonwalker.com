@@ -1,10 +1,7 @@
 ---
-tags:
-- blog
 title: Another Blow
 tags:
 - blog
-templateKey: 'blog-post'
 published: true
 date: 2017-12-28
 ---

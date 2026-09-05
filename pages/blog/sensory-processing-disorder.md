@@ -1,7 +1,6 @@
 ---
 tags:
 - blog
-templateKey: 'blog-post'
 title: Sensory Processing Disorder
 published: true
 date: 2018-01-04
