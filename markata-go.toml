@@ -57,7 +57,7 @@ url = "/projects/"
 slug = "archive"
 title = "Archive"
 description = "Rhiannon's writing"
-filter = "published == true and slug != 'index' and slug != 'about')"
+filter = "published == true and slug != 'index' and slug != 'about') and 'gratitude' not in tags"
 sort = "date"
 reverse = true
 primary = true
