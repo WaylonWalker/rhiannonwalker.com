@@ -8,7 +8,9 @@ tags:
   - Patchwork
   - Crown Bags
   - Re-purposing Fabric
+  
 ---
+
 ## 1st and only hand quilted project
 
 This quilt was made over a three year period.  The assembling of the top was done with the expert advice of Rosy, my step mom.  The fabric for this quilt was purchased in La Claire, IA at the local quilt shop.  When choosing the fabric for this quilt I wanted to make sure to keep it hunting/outdoor themed.  I used fabric with: river rock, bricks, birch trees, turkeys, and of course the crown bags.  This quilt went to my Father-in-law for Christmas.  I may have given this present multiple years in a row, because it wasn’t done in time.  Also, this was my first realization at how much it cost to make a complete quilt.
@@ -41,3 +43,4 @@ Well there you have it.  The story about the time I spent **3 years** hand quilt
 
 _It’s time to clean up the scrap, and make way for the next project.  Until Next Time!
 _
+ 
