@@ -64,7 +64,14 @@ Now our living room and kitchen are done until I decide something else needs to 
      * Vynl Floor Accessory Kits
 
 !!! danger "Products We Used"
-    Life Proof Flooring (Oak Trail), Underlayment, Trim Pieces, Red Underlayment Tape, stick-on backsplash, Construction Adhesive, and Caulk for counter and around the Floor.
+
+     * Life Proof Flooring (Oak Trail)
+     * Underlayment
+     * Trim Pieces
+     * Red Underlayment Tape
+     * stick-on backsplash
+     * Construction Adhesive
+     * Caulk for counter and around the Floor
 
 !!! warning "Paint Colors Used"
     FirePlace Brick:
