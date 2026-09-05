@@ -57,7 +57,7 @@ url = "/projects/"
 slug = "archive"
 title = "Archive"
 description = "Rhiannon's writing"
-filter = "published == true and ((path.startswith('pages/blog/') and slug != 'index' and slug != 'about') or path.startswith('pages/project/'))"
+filter = "published == true and slug != 'index' and slug != 'about')"
 sort = "date"
 reverse = true
 primary = true
