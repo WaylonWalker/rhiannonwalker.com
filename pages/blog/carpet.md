@@ -49,7 +49,19 @@ The timeline I assumed this would take is a couple of weekends. Truthfully it to
 Now our living room and kitchen are done until I decide something else needs to be changed, and I am the woman for the job. Nothing is ever permanent in my mind.
 
 !!! note "Tool List"
-     Safety Glasses, Carpet Tack Puller, Box Cutter with spare Blades, Trim Crowbar, Regular Crowbar, Vynl Cutter, Red Seam Tape, Safety Gloves, Hearing Protection, Shop Vac with special attachments, Rubber Mallet, and Vynl Floor Accessory Kit.
+
+     * Safety Glasses
+     * Carpet Tack Puller
+     * Box Cutter with spare Blades
+     * Trim Crowbar
+     * Regular Crowbar
+     * Vynl Cutter
+     * Red Seam Tape
+     * Safety Gloves
+     * Hearing Protection
+     * Shop Vac with special attachments
+     * Rubber Mallet
+     * Vynl Floor Accessory Kits
 
 !!! danger "Products We Used"
     Life Proof Flooring (Oak Trail), Underlayment, Trim Pieces, Red Underlayment Tape, stick-on backsplash, Construction Adhesive, and Caulk for counter and around the Floor.
