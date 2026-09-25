@@ -27,8 +27,8 @@ extensions = ["tables", "strikethrough", "tasklist"]
 name = "blog"
 
 [markata-go.theme]
-palette = "rose-pine-moon"
-fontpack = "system"
+palette = "rose-pine"
+fontpack = "brush-poster"
 
 [markata-go.post_formats]
 html = true
@@ -57,7 +57,7 @@ url = "/projects/"
 slug = "archive"
 title = "Archive"
 description = "Rhiannon's writing"
-filter = "published == true and slug != 'index' and slug != 'about' and 'gratitude' not in tags"
+filter = "published == true and slug != 'index' and slug != 'about' and 'gratitude' not in tags and 'daily-note' not in tags and not path.startswith('pages/daily/') and not path.startswith('pages/gratitude/')"
 sort = "date"
 reverse = true
 primary = true
@@ -85,6 +85,14 @@ reverse = true
 primary = true
 items_per_page = 20
 sidebar = true
+
+[markata-go.encryption]
+decryption_hint = "DM me for access"
+
+[markata-go.encryption.private_tags]
+"daily-note" = "default"
+daily = "default"
+gratitude = "default"
 
 [markata-go.search]
 backend = "bleve"
