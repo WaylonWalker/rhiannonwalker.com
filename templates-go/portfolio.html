@@ -1,0 +1,8 @@
+{% extends "post.html" %}
+
+{% block body_class %}page-portfolio{% endblock %}
+{% block page_wrapper_class %} page-wrapper--portfolio page-wrapper--content-only{% endblock %}
+
+{% block content %}
+<div class="post-content e-content">{{ body | safe }}</div>
+{% endblock %}

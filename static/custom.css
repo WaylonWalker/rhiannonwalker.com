@@ -304,6 +304,15 @@ html[data-theme="light"] .page-home .card {
   font-size: clamp(2.75rem, 5.5vw, 4.6rem);
 }
 
+/* Let the script measure the title against the space beside the byline. */
+:not(.page-home) .post-header__title-row > h1 {
+  min-width: 0;
+}
+
+html.title-fit-enabled .post-header__title-row > h1:not([data-title-fitted]) {
+  visibility: hidden;
+}
+
 :not(.page-home) .post-content blockquote {
   border-left-color: var(--rw-blush);
   color: var(--rw-blush);
@@ -728,96 +737,177 @@ html[data-theme="light"] .text-size-control select {
   .page-home .home-hero { min-height: 0; padding: 2rem 0 3rem; }
 }
 
-/* Portfolio: full-bleed editorial masonry grid, markdown-only.
-   No special template needed — the page is a ::: portfolio-grid container
-   of markdown images; a caption line directly after an image (no blank
-   line) becomes figcaption automatically. Captions reveal on hover.
-   The grid breaks out of the narrow reading column to full viewport
-   width (same technique as the theme's img.full-width); any prose
-   stays at reading width. */
-.portfolio-grid {
-  width: 100vw;
-  max-width: 100vw;
-  margin-top: clamp(1.5rem, 4vw, 3rem);
-  margin-bottom: 0;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-inline: clamp(0.5rem, 2vw, 2rem);
-  columns: 2;
-  column-gap: clamp(0.45rem, 1vw, 0.9rem);
+/* Full page photography spread. */
+.page-portfolio .page-wrapper {
+  width: 100%;
+  max-width: none;
+  padding: 0;
 }
-
-.portfolio-grid figure {
-  position: relative;
+.page-portfolio .main-content,
+.page-portfolio .post-content {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+.post-content .portfolio {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(0.4rem, 1vw, 1rem);
+}
+.portfolio-grid {
+  columns: 4;
+  column-gap: clamp(0.4rem, 1vw, 1rem);
+}
+.post-content .portfolio-grid figure {
   display: inline-block;
   width: 100%;
-  margin: 0 0 clamp(0.45rem, 1vw, 0.9rem);
-  overflow: hidden;
-  border: 1px solid var(--rw-line-soft);
-  border-radius: 0.8rem;
-  background: var(--rw-plum);
+  margin: 0 0 clamp(0.4rem, 1vw, 1rem);
+  border-radius: 0;
   break-inside: avoid;
 }
-
-.portfolio-grid figure img {
+.portfolio-photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--rw-plum);
+  color: inherit;
+  cursor: zoom-in;
+}
+.portfolio-photo::before {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  background: var(--portfolio-preview) center / cover no-repeat;
+  filter: blur(7px);
+  opacity: 1;
+  transition: opacity 520ms ease-out;
+  pointer-events: none;
+}
+.portfolio-photo.is-loaded::before { opacity: 0; }
+.post-content .portfolio .portfolio-photo img {
   display: block;
   width: 100%;
   height: auto;
-  margin: 0;
-  object-fit: cover;
   border-radius: 0;
-  transition: transform 220ms ease;
+  margin: 0;
+  transition: transform 260ms ease, filter 480ms cubic-bezier(.2, .7, .2, 1);
 }
+.portfolio-js .portfolio-photo img:not(.is-loaded) { opacity: 0; filter: blur(6px); }
+.portfolio-photo img.is-loaded { filter: blur(0); }
+.portfolio-photo:hover img { transform: scale(1.02); }
 
-.portfolio-grid figure:hover img {
-  transform: scale(1.03);
+.portfolio-lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  padding: 3.5rem 4.5rem 1.5rem;
+  border: 0;
+  background: var(--rw-ink);
+  color: var(--rw-cream);
+  text-align: center;
 }
-
-.portfolio-grid figcaption {
+.portfolio-lightbox::backdrop { background: rgba(12, 9, 14, 0.94); }
+html[data-theme="light"] .portfolio-lightbox::backdrop { background: rgba(43, 32, 43, 0.55); }
+.portfolio-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-lightbox-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.portfolio-lightbox-stage img {
   position: absolute;
-  inset: auto 0 0 0;
-  padding: 2.2rem 1rem 0.9rem;
-  background: linear-gradient(180deg, transparent, rgba(22, 18, 24, 0.88));
-  color: var(--rw-image-text);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  line-height: 1.45;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
   opacity: 0;
-  transform: translateY(0.5rem);
-  transition: opacity 180ms ease, transform 180ms ease;
+  transform: translateX(12px) scale(.995);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.portfolio-lightbox-stage img.from-left { transform: translateX(-12px) scale(.995); }
+.portfolio-lightbox-stage img.is-visible { opacity: 1; transform: none; }
+.portfolio-lightbox-stage img.is-exiting.to-left { opacity: 0; transform: translateX(-12px) scale(.995); }
+.portfolio-lightbox-stage img.is-exiting.to-right { opacity: 0; transform: translateX(12px) scale(.995); }
+.portfolio-lightbox button {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--rw-line);
+  border-radius: 50%;
+  background: var(--rw-night);
+  color: var(--rw-cream);
+  cursor: pointer;
+}
+.portfolio-lightbox button svg {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.portfolio-lightbox button:hover { background: var(--rw-plum); }
+.portfolio-lightbox-close { top: 0.8rem; right: 1rem; }
+.portfolio-lightbox-previous { left: 1rem; top: 50%; }
+.portfolio-lightbox-next { right: 1rem; top: 50%; }
+.portfolio-lightbox-position {
+  position: absolute;
+  right: 0;
+  bottom: 1.2rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--rw-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
   pointer-events: none;
 }
-
-.portfolio-grid figcaption p {
-  margin: 0;
+.portfolio-lightbox-progress {
+  width: clamp(5rem, 10vw, 8rem);
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--rw-line);
+}
+.portfolio-lightbox-progress-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--rw-blush);
+  transition: width 260ms ease-out;
 }
 
-.portfolio-grid figure:hover figcaption {
-  opacity: 1;
-  transform: none;
+@media (max-width: 1499px) { .portfolio-grid { columns: 3; } }
+@media (max-width: 899px) { .portfolio-grid { columns: 2; } }
+@media (max-width: 639px) {
+  .portfolio-lightbox { padding: 3rem 0.5rem 4rem; }
+  .portfolio-lightbox-previous, .portfolio-lightbox-next { top: auto; bottom: 0.75rem; }
 }
-
-@media (min-width: 700px) {
-  .portfolio-grid { columns: 3; }
-}
-
-@media (min-width: 1100px) {
-  .portfolio-grid { columns: 4; }
-}
-
-@media (min-width: 1600px) {
-  .portfolio-grid { columns: 5; }
-}
-
-@media (hover: none) {
-  .portfolio-grid figcaption {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-grid figure img,
-  .portfolio-grid figcaption { transition: none; }
-  .portfolio-grid figure:hover img { transform: none; }
+  .post-content .portfolio .portfolio-photo img,
+  .portfolio-photo::before,
+  .portfolio-lightbox-stage img,
+  .portfolio-lightbox-progress-fill { transition: none; }
+  .portfolio-photo:hover img { transform: none; }
 }

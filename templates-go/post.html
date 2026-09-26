@@ -5,6 +5,13 @@
 
 {% block meta %}
 <title>{% block title %}{{ post.title_text }} | {{ config.title | default:'My Site' }}{% endblock %}</title>
+<script>
+document.documentElement.classList.add('title-fit-enabled');
+setTimeout(function () {
+  if (!window.__titleFitInitialized) document.documentElement.classList.remove('title-fit-enabled');
+}, 4000);
+</script>
+<link rel="preload" href="/fonts/playwrite-vn.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="description" content="{% block description %}{{ post.description | default:'' }}{% endblock %}">
 
 {% if post.slug != "404" %}
