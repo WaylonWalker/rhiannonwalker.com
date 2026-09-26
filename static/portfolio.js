@@ -19,6 +19,27 @@
     if (event.target instanceof HTMLImageElement) markLoaded(event.target);
   }, true);
 
+  function prepareDecryptionInputs() {
+    document.querySelectorAll(".page-portfolio .encrypted-content__input[type='password']").forEach((input) => {
+      // This is a content passphrase, not an account login; avoid mobile password-manager overlays.
+      input.autocomplete = "off";
+      input.name = "decryption-passphrase";
+      input.inputMode = "text";
+      input.enterKeyHint = "go";
+    });
+  }
+  prepareDecryptionInputs();
+  window.addEventListener("view-transition-complete", prepareDecryptionInputs);
+  document.addEventListener("pointerdown", (event) => {
+    const input = document.querySelector(".page-portfolio .encrypted-content__input[type='password']");
+    if (!input || input.disabled) return;
+    const bounds = input.getBoundingClientRect();
+    if (event.clientX >= bounds.left && event.clientX <= bounds.right &&
+        event.clientY >= bounds.top && event.clientY <= bounds.bottom) {
+      input.focus({ preventScroll: true });
+    }
+  }, true);
+
   let dialog;
   let stage;
   let links = [];
@@ -27,6 +48,8 @@
   let opener;
   let touchStart;
   let position;
+  let currentNumber;
+  let totalNumber;
   let progress;
   let progressFill;
 
@@ -72,7 +95,8 @@
   function updatePosition() {
     if (!position || !progress || !progressFill) return;
     const number = current + 1;
-    position.textContent = `${number} / ${links.length}`;
+    currentNumber.textContent = String(number).padStart(2, "0");
+    totalNumber.textContent = String(links.length).padStart(2, "0");
     progress.setAttribute("aria-valuenow", String(number));
     progress.setAttribute("aria-valuemax", String(links.length));
     progress.setAttribute("aria-valuetext", `Image ${number} of ${links.length}`);
@@ -90,7 +114,11 @@
       <div class="portfolio-lightbox-stage"></div>
       <button class="portfolio-lightbox-next" type="button" aria-label="Next image">${icons.next}</button>
       <div class="portfolio-lightbox-position" aria-label="Gallery position">
-        <span class="portfolio-lightbox-count" role="status" aria-live="polite"></span>
+        <span class="portfolio-lightbox-count" role="status" aria-live="polite" aria-atomic="true">
+          <span class="portfolio-lightbox-current"></span>
+          <span class="portfolio-lightbox-divider" aria-hidden="true">/</span>
+          <span class="portfolio-lightbox-total"></span>
+        </span>
         <div class="portfolio-lightbox-progress" role="progressbar" aria-label="Portfolio images">
           <span class="portfolio-lightbox-progress-fill"></span>
         </div>
@@ -98,6 +126,8 @@
     document.body.append(dialog);
     stage = dialog.querySelector(".portfolio-lightbox-stage");
     position = dialog.querySelector(".portfolio-lightbox-count");
+    currentNumber = dialog.querySelector(".portfolio-lightbox-current");
+    totalNumber = dialog.querySelector(".portfolio-lightbox-total");
     progress = dialog.querySelector(".portfolio-lightbox-progress");
     progressFill = dialog.querySelector(".portfolio-lightbox-progress-fill");
     dialog.querySelector(".portfolio-lightbox-close").addEventListener("click", () => dialog.close());

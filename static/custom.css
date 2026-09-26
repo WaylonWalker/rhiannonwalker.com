@@ -750,6 +750,52 @@ html[data-theme="light"] .text-size-control select {
   padding: 0;
   margin: 0;
 }
+.page-portfolio .encrypted-content:has(.encrypted-content__locked) {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: min(72vh, 42rem);
+  min-height: min(72svh, 42rem);
+  margin: 0;
+  padding: 1rem;
+}
+.page-portfolio .encrypted-content__locked {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: min(100%, 31.25rem);
+  margin: 0 auto;
+}
+.page-portfolio .encrypted-content__form {
+  position: relative;
+  z-index: 2;
+}
+.page-portfolio .encrypted-content__input {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 16rem);
+  min-width: 0;
+  min-height: 3rem;
+  border-color: var(--rw-muted);
+  background: var(--rw-plum);
+  color: var(--rw-cream);
+  cursor: text;
+  opacity: 1;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-user-select: text;
+  user-select: text;
+}
+.page-portfolio .encrypted-content__input::placeholder {
+  color: var(--rw-muted);
+  opacity: 1;
+}
+.page-portfolio .encrypted-content__input:focus-visible {
+  border-color: var(--rw-blush);
+  outline: 2px solid var(--rw-blush);
+  outline-offset: 2px;
+}
 .post-content .portfolio {
   width: 100%;
   max-width: none;
@@ -875,16 +921,31 @@ html[data-theme="light"] .portfolio-lightbox::backdrop { background: rgba(43, 32
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  color: var(--rw-muted);
-  font-size: 0.75rem;
+  gap: 0.9rem;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
   pointer-events: none;
 }
+.portfolio-lightbox-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.22rem;
+  min-width: 2.9rem;
+  color: var(--rw-muted);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+.portfolio-lightbox-current {
+  color: var(--rw-cream);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 0.9;
+}
+.portfolio-lightbox-divider { opacity: 0.65; }
 .portfolio-lightbox-progress {
-  width: clamp(5rem, 10vw, 8rem);
-  height: 2px;
+  width: clamp(5rem, 10vw, 7.5rem);
+  height: 1px;
   overflow: hidden;
   border-radius: 999px;
   background: var(--rw-line);
@@ -895,7 +956,7 @@ html[data-theme="light"] .portfolio-lightbox::backdrop { background: rgba(43, 32
   height: 100%;
   border-radius: inherit;
   background: var(--rw-blush);
-  transition: width 260ms ease-out;
+  transition: width 320ms cubic-bezier(.2, .7, .2, 1);
 }
 
 @media (max-width: 1499px) { .portfolio-grid { columns: 3; } }
@@ -903,6 +964,9 @@ html[data-theme="light"] .portfolio-lightbox::backdrop { background: rgba(43, 32
 @media (max-width: 639px) {
   .portfolio-lightbox { padding: 3rem 0.5rem 4rem; }
   .portfolio-lightbox-previous, .portfolio-lightbox-next { top: auto; bottom: 0.75rem; }
+  .page-portfolio .encrypted-content__form { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .page-portfolio .encrypted-content__input,
+  .page-portfolio .encrypted-content__button { width: 100%; max-width: none; min-height: 3rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .post-content .portfolio .portfolio-photo img,
