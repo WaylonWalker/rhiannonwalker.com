@@ -6,8 +6,6 @@ published: true
 date: 2016-12-11
 ---
 
-_December 11, 2016_
-
 Christmas is two weeks away and traffic is insane in Peoria.  I am struggling to find the cheer that the holiday season usually brings.
 
  We found out last week that I am getting sent to Barnes Jewish Hospital in St. Louis since my lung resection requires a specialist to operate.   We get to meet with the surgeon on Wednesday to discuss how the surgery is going to go, along with a possible date for surgery.  **If I have ever had any Christmas wish that meant more to me it would be to have the surgery this year!**

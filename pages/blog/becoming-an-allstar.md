@@ -6,8 +6,6 @@ published: true
 date: 2017-01-30
 ---
 
-_January 30, 2017_
-
 When your life gets put into risk and dying becomes closer than living, everything changes.  The hugs mean just that much more.  The "I love yous" stick.  What goes in your body or surrounds your body now means the world!  When your body fails you and medicine revives you, you are not yet a super hero.
 
 I feel like Deadpool in the hyperbaric chamber.  My body is going through all these chemical changes so that I can become an all-star!   Make no mistake all-star qualities are arriving by the minute.  Little things don't mean as much to me, like getting the laundry done.  Instead I would rather spend the extra time reading one more book at bedtime to my kids.  I now think eating dessert should come first, because you NEVER know.

@@ -6,8 +6,6 @@ published: true
 date: 2017-05-05
 ---
 
-_May 5, 2017_
-
 Dear Doctor Joining My Team,
 
 You don't know me.  You don't know what I have fought through to get to this point.   You have read the charts and you compare me to other patients you may have seen today.  I am NOT like others.  I don't just sit on the side line in my case, and want to be treated just as much as a partner as a patient.  If it is knowledge I need, recommend a book.  I want to know everything.  I want you to be blunt and honest with me at a times, even if it gets difficult.

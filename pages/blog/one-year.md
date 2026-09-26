@@ -6,8 +6,6 @@ published: true
 date: 2017-03-03
 ---
 
-_March 3, 2017_
-
 There was a part of me who didn't think I would make it to see today.  I heard the diagnosis and my tired, very worn out, overwhelmed body thought it would not happen.  There was NO way I was going to make it to see 27.  I was fairly certain I was not going to survive surgery.  I was fairly certain that I was going to let cancer win.
 
 I never told anyone.  I never said the words out loud, until now.

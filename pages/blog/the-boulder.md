@@ -6,8 +6,6 @@ published: true
 date: 2018-04-02
 ---
 
-_April 2, 2018_
-
 When life throws us challenges our minds go to their comfort zones.  For some people that’s a religious factor and for others it could mean they reach to within, but for me, I seek the strength in those I love and hold dear to my heart.  A year and half ago I was thrown the largest bolder I have ever had to handle, and I have handled a lot in my life.
 
 > A year and half ago I was thrown the largest bolder I have ever had to handle, and I have handled a lot in my life.

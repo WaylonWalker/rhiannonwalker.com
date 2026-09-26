@@ -6,8 +6,6 @@ published: true
 date: 2016-11-25
 ---
 
-_November 25, 2016_
-
 "You have cancer, a carcinoid tumor in your left lung."These were the words I heard Wednesday, November 23, 2016 at 12:20pm.  This is the exact moment in time, when I started questioning my future.
 
 I left the office, briskly walked to my car and sobbed.  I couldn't believe the words I just heard. I am 26 years old. I have two small children.  How can I have cancer? How will I tell my family, my friends, and what does this mean for my future?

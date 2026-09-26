@@ -6,8 +6,6 @@ published: true
 date: 2017-02-10
 ---
 
-_February 10, 2017_
-
 Hi Mom,
 
 Where do I start, I miss you.  You already know that.  This has been a rollercoaster, this has all been a rollercoaster and I know your protecting me with the chest straps, but it's time to down grade to the little kid Dragon and not the Tornado.  It would give your arms a break, you wouldn't have to hold on quite so hard.

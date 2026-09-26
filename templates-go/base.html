@@ -3,3 +3,8 @@
 {% block header %}
 {% include "components/rhiannon-header.html" %}
 {% endblock %}
+
+{% block scripts %}
+{{ block.Super() }}
+<script src="/js/relative-dates.js" defer></script>
+{% endblock %}

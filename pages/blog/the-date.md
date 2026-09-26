@@ -6,8 +6,6 @@ published: true
 date: 2016-12-17
 ---
 
-_December 17, 2016_
-
 Things have been flying since we met with the surgeon in St Louis.  The surgeon needs a clear picture to decide the right direction during surgery, so they decided to do another repeat bronchoscopy right before surgery.
 
 **Surgery is Monday!!**

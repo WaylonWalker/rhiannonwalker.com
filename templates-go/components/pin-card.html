@@ -1,0 +1,20 @@
+{% with post.image|default:post.cover|media_url:post.video as media_src %}
+<article class="pin-card h-entry">
+  <a class="pin-card__main u-url" href="{{ post.href }}" aria-label="Read {{ post.title | default:post.slug }}">
+    {% if media_src %}
+    <span class="pin-card__media"><img class="u-photo" src="{{ media_src | with_size:'600' }}" alt="" loading="lazy" decoding="async"></span>
+    {% else %}
+    <span class="pin-card__media pin-card__media--empty" aria-hidden="true"><span>✦</span></span>
+    {% endif %}
+    <span class="pin-card__body">
+      <span class="pin-card__title p-name">{{ post.title | default:post.slug }}</span>
+      {% if post.description %}<span class="pin-card__description p-summary">{{ post.description }}</span>{% endif %}
+    </span>
+  </a>
+  <div class="pin-card__meta">
+    {% if post.link %}<a class="pin-card__domain u-bookmark-of" href="{{ post.link }}" target="_blank" rel="noopener noreferrer">{{ post.link | domain }} <span aria-hidden="true">↗</span></a>
+    {% elif post.url %}<a class="pin-card__domain u-bookmark-of" href="{{ post.url }}" target="_blank" rel="noopener noreferrer">{{ post.url | domain }} <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if post.date %}<time class="pin-card__date dt-published" data-relative-date datetime="{{ post.date | atom_date }}">{{ post.date | human_date }}</time>{% endif %}
+  </div>
+</article>
+{% endwith %}

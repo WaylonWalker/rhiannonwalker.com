@@ -6,8 +6,6 @@ published: true
 date: 2017-01-02
 ---
 
-_January 2, 2017_
-
 I'm a 26 year old with cancer.  I know you know this, but it is important that this is heard more than once.  You see it didn't hit me till over a month past my diagnosis. In other words, just now.  I am a 26 year old mother with cancer.  The tumor has been removed and I see the Oncologist February 1st.  
 
 Recovery has not been easy from surgery and I don't think that I even talked to you guys in depth about it.  I was told going into my hospital stay that it would be a 4-5 day stay.  Once I actually completed the surgery I was told there was no way in hell I was getting out that early and I would for sure be there at least a week.  What's two more days right?  Two more days is Christmas Eve, and Christmas, two more days is suffering through the chest tube hell.  Two more days is two days.  This is the point in my recovery that the anger kicked in.  I was told I'd be home for Christmas, but had a feeling in my gut that I was wrong.  There it is, that gut feeling again.  The gut feeling that is usually right.  I'm a 26 year old mother of two with cancer.  

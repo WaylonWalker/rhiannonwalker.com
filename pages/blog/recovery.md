@@ -6,8 +6,6 @@ published: true
 date: 2016-12-23
 ---
 
-_December 23, 2016_
-
 Starting from the beginning of post surgery recovery, Monday.
 
 .....hmmm, I don't remember much from Monday, I was told I was joking with my Dad nice to hear my sense of humor survived the surgery.

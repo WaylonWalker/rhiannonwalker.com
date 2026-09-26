@@ -1,0 +1,25 @@
+{% extends "embedded:feed-photo-grid.html" %}
+
+{% block content %}
+<div class="feed h-feed feed--photo-grid feed--shots">
+  <header class="feed-header">
+    <h1 class="p-name">{{ feed.title }}</h1>
+  </header>
+
+  {% if config.author %}
+  <div class="feed-author-card p-author h-card visually-hidden">
+    <a class="u-url u-uid p-name" href="{{ config.url }}" rel="author">{{ config.author }}</a>
+  </div>
+  {% endif %}
+
+  <div class="posts posts-list posts-list--photo-grid" id="posts-list">
+    {% if page.pagination_type == "js" %}{% for post in feed.posts %}
+    {% include "components/shot-card.html" %}
+    {% endfor %}{% else %}{% for post in page.posts %}
+    {% include "components/shot-card.html" %}
+    {% endfor %}{% endif %}
+  </div>
+
+  {% if page.total_pages > 1 %}{% include "partials/pagination.html" %}{% endif %}
+</div>
+{% endblock %}

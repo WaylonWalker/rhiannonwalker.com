@@ -6,8 +6,6 @@ published: true
 date: 2018-01-04
 ---
 
-_January 4, 2018_
-
 Sensory Processing Disorder.  What does it mean?  It means the the paitents brain takes what we usually can handle like touching different textures, feeling different temperatures, dealing with new situations, doing things out of order, and eating or drinking different substances and they catergorize them as a catastrophic event.  Have you ever seen the movie Inside Out, and how Anger completely looses it.  Well, that is what the brain does when it can't handle a certain situation such as when it snows or the blankets are put on her out of order.
 
 <div style="width:50%;height:0;padding-bottom:25%;position:relative;margin:3rem auto;">

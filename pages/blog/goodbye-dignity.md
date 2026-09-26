@@ -6,8 +6,6 @@ published: true
 date: 2018-02-08
 ---
 
-_February 8, 2018_
-
 Let’s talk about moods.  Sometimes my mood is great and I am happy.  Sometimes I feel productive.  Sometimes I feel like I can conquer the world.  Other times, I feel like 20 tons of bricks are crushing me, and I can’t push them off my chest.  I feel like I am stuck in sinking mud and only sinking further.  I feel like everyone is against me and I am just this obnoxious person stuck in bed.
 
 ## Where is this coming from?

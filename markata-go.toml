@@ -114,13 +114,15 @@ sidebar = true
 [[markata-go.feeds]]
 slug = "shots"
 title = "Shots"
-description = "Quick photo shares"
 filter = "published == true and path.startswith('pages/shots/')"
 sort = "date"
 reverse = true
 primary = true
 items_per_page = 20
 sidebar = true
+
+[markata-go.feeds.templates]
+html = "feed-photo-grid.html"
 
 [[markata-go.feeds]]
 slug = "daily"
@@ -138,12 +140,20 @@ include_private = true
 slug = "pins"
 title = "Pins"
 description = "Pinned links from around the web"
-filter = "published == true and path.startswith('pages/link/')"
+filter = "published == true and template == 'link'"
 sort = "date"
 reverse = true
 primary = true
 items_per_page = 20
 sidebar = true
+
+[markata-go.feeds.formats]
+html = false
+simple_html = true
+rss = true
+atom = true
+json = true
+sitemap = true
 
 [markata-go.components.share]
 enabled = false

@@ -6,8 +6,6 @@ published: true
 date: 2018-03-27
 ---
 
-_March 27, 2018_
-
 Recently Waylon and I received some financial coaching to figure out how to handle my death when it comes.  Unfortunately, I did not have life insurance before being diagnosed with Cancer.  This is a pretty big issue.  Waylon and I have embarked on the journey to getting out of debt.  We are following Dave Ramsey, and his baby step program.  In this program there are 7 baby steps to being debt free.
 
 Step 1:  Save $1000  
