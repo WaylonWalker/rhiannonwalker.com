@@ -1,0 +1,33 @@
+{% extends "embedded:home.html" %}
+
+{% block header %}{% include "components/rhiannon-header.html" %}{% endblock %}
+
+{% block main %}
+<main id="main-content" tabindex="-1">
+  <section class="home-hero" aria-label="Rhiannon Walker">
+    {% include "components/rhiannon-logo.html" %}
+  </section>
+  {% if post.intro_cards %}
+  <section class="home-section home-intro-grid" aria-label="Introduction cards">
+    <div class="home-width"><div class="home-two-col">
+      {% for card in post.intro_cards %}
+      <div class="home-card">
+        {% if card.heading %}<h2>{% if card.link %}<a href="{{ card.link }}">{{ card.heading }}</a>{% else %}{{ card.heading }}{% endif %}</h2>{% endif %}
+        {{ include_post(card.slug) | safe }}
+      </div>
+      {% endfor %}
+    </div></div>
+  </section>
+  {% endif %}
+  <div class="home-feeds"><div class="home-width">
+    {% if resolved_content_sidebar and resolved_content_sidebar.slug %}
+    <div class="home-main-rail">
+      <div class="home-main-content post-content{% if post.css_class %} {{ post.css_class }}{% endif %}">{{ body | safe }}</div>
+      <aside class="home-sidebar">{{ include_post(resolved_content_sidebar.slug) | safe }}</aside>
+    </div>
+    {% else %}
+    <div class="home-main-content post-content{% if post.css_class %} {{ post.css_class }}{% endif %}">{{ body | safe }}</div>
+    {% endif %}
+  </div></div>
+</main>
+{% endblock %}

@@ -7,6 +7,7 @@ description: Everyone knows when you do anything to a house, you start with a pr
   thought, such as, "I want to fix the pee-stained carpet."  Our kitchen and living
   room are nearly done a couple thousand dollars later.
 published: true
+
 ---
 
 I had good intentions when I said I wanted to replace just the carpet. However, if you look at the path to replace the flooring, it continues with the floors. We should paint so we are not ruining the new flooring as it goes down. Plus, I am being honest; the maroon and tan that our home has EVERYWHERE is incredibly triggering to me (that's a trauma issue). It's time for the paint colors to go!

@@ -6,20 +6,9 @@ published: true
 slug: ""
 template: home.html
 jinja: true
-hero_first_name: Rhiannon
-hero_last_name: Walker
-hero_tagline: One Breath at a Time
-hero_avatar: https://dropper.wayl.one/api/file/858c063f-d5ac-45bc-8c01-b347fb01becd.png
-hero_links:
-  - label: About
-    url: /about/
-  - label: Archive
-    url: /archive/
-  - label: Projects
-    url: /projects/
 ---
 
-Welcome to my corner of the internet.
+Welcome to my corner of the internet — a place for honest stories, creative work, and the small things that help us keep going.
 
 ## Recent writing
 
@@ -28,3 +17,14 @@ Welcome to my corner of the internet.
 ## Projects
 
 {{ render_feed("projects", 5, "card") }}
+
+## Browse by topic
+
+<ul class="home-topic-list">
+  <li><a href="/tags/anxiety/">Anxiety</a></li>
+  <li><a href="/tags/applique/">Appliqué</a></li>
+  <li><a href="/tags/quilts/">Quilts</a></li>
+  <li><a href="/tags/gratitude/">Gratitude</a></li>
+</ul>
+
+<p class="home-closing-note">Take what you need, stay as long as you like, and come back when you need another breath.</p>

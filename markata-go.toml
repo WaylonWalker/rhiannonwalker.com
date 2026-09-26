@@ -27,15 +27,25 @@ extensions = ["tables", "strikethrough", "tasklist"]
 name = "blog"
 
 [markata-go.theme]
-palette = "rose-pine"
-fontpack = "brush-poster"
+palette = "rhiannon-floral"
+palette_light = "rhiannon-floral-light"
+palette_dark = "rhiannon-floral"
+fontpack = "literary"
+custom_css = "custom.css"
+
+[markata-go.theme.switcher]
+enabled = false
+mode_toggle = true
+
+[markata-go.theme.variables]
+"--content-width" = "68ch"
 
 [markata-go.post_formats]
 html = true
-markdown = true
-text = true
+markdown = false
+text = false
 ansi = false
-og = true
+og = false
 
 [[markata-go.nav]]
 label = "Home"
@@ -53,11 +63,26 @@ url = "/archive/"
 label = "Projects"
 url = "/projects/"
 
+# Keep root subscriptions without letting the implicit HTML feed replace
+# pages/index.md at /index.html.
+[[markata-go.feeds]]
+slug = ""
+title = "Rhiannon Walker Feed"
+description = "One Breath at a Time"
+filter = "published == true"
+sort = "date"
+reverse = true
+
+[markata-go.feeds.formats]
+html = false
+rss = true
+atom = true
+
 [[markata-go.feeds]]
 slug = "archive"
 title = "Archive"
 description = "Rhiannon's writing"
-filter = "published == true and slug != 'index' and slug != 'about' and 'gratitude' not in tags and 'daily-note' not in tags and not path.startswith('pages/daily/') and not path.startswith('pages/gratitude/')"
+filter = "published == true and slug != 'index' and slug != 'about' and not path.startswith('pages/daily/') and not path.startswith('pages/gratitude/') and not path.startswith('pages/shots/')"
 sort = "date"
 reverse = true
 primary = true
@@ -85,6 +110,43 @@ reverse = true
 primary = true
 items_per_page = 20
 sidebar = true
+
+[[markata-go.feeds]]
+slug = "shots"
+title = "Shots"
+description = "Quick photo shares"
+filter = "published == true and path.startswith('pages/shots/')"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+
+[[markata-go.feeds]]
+slug = "daily"
+title = "Daily Notes"
+description = "Day-to-day notes from Rhiannon"
+filter = "published == true and 'daily-note' in tags"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+include_private = true
+
+[[markata-go.feeds]]
+slug = "pins"
+title = "Pins"
+description = "Pinned links from around the web"
+filter = "published == true and path.startswith('pages/link/')"
+sort = "date"
+reverse = true
+primary = true
+items_per_page = 20
+sidebar = true
+
+[markata-go.components.share]
+enabled = false
 
 [markata-go.encryption]
 decryption_hint = "DM me for access"

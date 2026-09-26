@@ -1,0 +1,14 @@
+{% if compact_logo %}
+<a class="rhiannon-logo rhiannon-logo--compact" href="/" aria-label="Rhiannon Walker — home">
+  <img class="rhiannon-logo__flowers" src="/images/rhiannon/flowers3-640.webp" alt="" width="640" height="427" loading="eager" decoding="async">
+  <span class="rhiannon-logo__band"><span class="rhiannon-logo__name">Rhiannon</span></span>
+</a>
+{% else %}
+<div class="rhiannon-logo rhiannon-logo--hero">
+  <picture>
+    <source media="(max-width: 700px)" srcset="/images/rhiannon/flowers3-640.webp">
+    <img class="rhiannon-logo__flowers" src="/images/rhiannon/flowers3.webp" alt="" width="1200" height="800" fetchpriority="high" decoding="async">
+  </picture>
+  <h1 class="rhiannon-logo__band"><span class="rhiannon-logo__name">Rhiannon</span></h1>
+</div>
+{% endif %}

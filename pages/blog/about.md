@@ -28,7 +28,6 @@ _@waylon added these for later_
 
 ![754573f7-f97a-4f47-919b-1bb577647713.png](https://dropper.wayl.one/file/754573f7-f97a-4f47-919b-1bb577647713.png)
 
-![61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp](https://dropper.wayl.one/file/61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp)
 
 ![c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp](https://dropper.wayl.one/file/c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp)
 

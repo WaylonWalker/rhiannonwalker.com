@@ -1,6 +1,8 @@
 {# Keep the embedded post layout and override only its metadata block. #}
 {% extends "embedded:post.html" %}
 
+{% block header %}{% include "components/rhiannon-header.html" %}{% endblock %}
+
 {% block meta %}
 <title>{% block title %}{{ post.title_text }} | {{ config.title | default:'My Site' }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ post.description | default:'' }}{% endblock %}">

@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-title">Rhiannon Walker</a>
+    {% with true as compact_logo %}{% include "components/rhiannon-logo.html" %}{% endwith %}
+    {% include "components/nav.html" %}
+    <div class="header-controls">
+      {% if config.search.enabled and config.search.position == 'navbar' %}
+      {% include "components/search.html" %}
+      {% endif %}
+      {% include "partials/palette-switcher.html" %}
+    </div>
+  </div>
+</header>

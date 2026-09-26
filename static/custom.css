@@ -1,0 +1,512 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap");
+
+/* Rhiannon Walker — dark floral editorial layer
+   Loaded after Markata-Go's generated theme styles. */
+
+:root {
+  --rw-ink: #29262b;
+  --rw-night: #353139;
+  --rw-plum: #49434c;
+  --rw-cream: #fff4ec;
+  --rw-muted: #dfd1d5;
+  --rw-blush: #f2c9d3;
+  --rw-peach: #f5d2bd;
+  --rw-sage: #cbd9bf;
+  --rw-lavender: #ded5e4;
+  --rw-gold: #d7b878;
+  --rw-title-block: #fff4ec;
+  --rw-line: rgba(255, 244, 236, 0.2);
+  --rw-line-soft: rgba(255, 244, 236, 0.12);
+  --rw-radius: 1.25rem;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Literata", Georgia, serif;
+}
+
+@font-face {
+  font-family: "Kalam";
+  src: url("/fonts/kalam.woff2") format("woff2");
+  font-display: swap;
+}
+
+html[data-theme="light"] {
+  --rw-ink: #f8f1ec;
+  --rw-night: #eee3e6;
+  --rw-plum: #fffaf7;
+  --rw-cream: #2b202b;
+  --rw-muted: #645663;
+  --rw-blush: #a74d68;
+  --rw-peach: #b96b4e;
+  --rw-sage: #526c55;
+  --rw-lavender: #725d88;
+  --rw-gold: #896b25;
+  --rw-title-block: #fff8f2;
+  --rw-line: rgba(43, 32, 43, 0.18);
+  --rw-line-soft: rgba(43, 32, 43, 0.1);
+}
+
+html,
+body {
+  background: var(--rw-ink);
+  color: var(--rw-cream);
+}
+
+html[data-theme="light"] body {
+  background-image:
+    radial-gradient(circle at 14% 18%, rgba(182, 166, 216, 0.18) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 82% 12%, rgba(243, 149, 179, 0.2) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 67% 72%, rgba(166, 189, 146, 0.16) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, #fffaf6, #f8edf1 52%, #fff8ef);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 14% 18%, rgba(197, 182, 216, 0.07) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 82% 12%, rgba(239, 189, 159, 0.08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 67% 72%, rgba(231, 166, 181, 0.05) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, var(--rw-ink), var(--rw-night) 52%, var(--rw-ink));
+  background-size: 11rem 13rem, 17rem 19rem, 23rem 21rem, auto;
+}
+
+body.page-home {
+  background-size: 5.5rem 7rem, 8rem 9.5rem, 11rem 12.5rem, auto;
+}
+
+a {
+  color: var(--rw-blush);
+}
+
+a:hover {
+  color: var(--rw-peach);
+}
+
+:is(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--rw-peach);
+  outline-offset: 3px;
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  background: rgba(41, 38, 43, 0.9);
+  border-bottom-color: var(--rw-line);
+  backdrop-filter: blur(14px);
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(248, 241, 236, 0.9);
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Markata's page transitions retain the header while updating body.page-home. */
+.site-header .site-title { display: none; }
+body.page-home .site-header .site-title { display: inline-flex; }
+body.page-home .site-header .rhiannon-logo--compact { display: none; }
+
+.site-nav .nav-link,
+.theme-switcher button {
+  color: var(--rw-muted);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus-visible {
+  color: var(--rw-cream);
+}
+
+.page-home .page-wrapper,
+.page-home main {
+  background: transparent;
+}
+
+.home-width {
+  max-width: 1180px;
+}
+
+/* A quiet celestial field behind the single large bouquet. */
+.page-home .home-hero {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: clamp(1.5rem, 4vw, 4rem) 1rem clamp(2rem, 6vw, 5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 39%, rgba(213, 178, 188, 0.24), transparent 53%),
+    linear-gradient(180deg, rgba(53, 49, 57, 0.1), rgba(53, 49, 57, 0.62));
+}
+
+html[data-theme="light"] .page-home .home-hero {
+  background:
+    radial-gradient(ellipse at 50% 39%, rgba(182, 166, 216, 0.28), transparent 53%),
+    linear-gradient(180deg, rgba(255, 250, 246, 0.22), rgba(255, 247, 241, 0.66));
+}
+
+.page-home .home-hero::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.page-home .home-hero::before {
+  width: 0.12rem;
+  height: 0.12rem;
+  top: 18%;
+  left: 12%;
+  background: var(--rw-peach);
+  box-shadow: 21vw 8vh 0 0 var(--rw-lavender), 35vw 2vh 0 0 var(--rw-cream), 72vw 16vh 0 0 var(--rw-sage), 84vw 42vh 0 0 var(--rw-peach), 8vw 48vh 0 0 var(--rw-lavender);
+  opacity: 0.55;
+}
+
+.page-home .home-feeds {
+  padding: clamp(3.5rem, 8vw, 7rem) 0;
+  border-top: 1px solid var(--rw-line-soft);
+  background: linear-gradient(180deg, rgba(73, 67, 76, 0.64), rgba(41, 38, 43, 0.2));
+}
+
+html[data-theme="light"] .page-home .home-feeds {
+  background: linear-gradient(180deg, rgba(255, 247, 243, 0.78), rgba(255, 250, 246, 0.96));
+}
+
+.page-home .home-main-content {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.page-home .home-main-content > p:first-child {
+  max-width: 46rem;
+  margin: 0 auto clamp(3rem, 7vw, 5rem);
+  color: var(--rw-muted);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.75;
+  text-align: center;
+}
+
+.page-home .home-main-content > h2 {
+  margin: clamp(3rem, 7vw, 5rem) 0 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom-color: var(--rw-line);
+  color: var(--rw-cream);
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.page-home .feed .posts,
+.page-home .feed .posts-list,
+.page-home .feed.h-feed:not(.feed-layout-grid):not(.feed-layout-masonry) > .posts,
+.page-home .feed.h-feed:not(.feed-layout-grid):not(.feed-layout-masonry) > .posts-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.page-home .card {
+  min-width: 0;
+  border: 1px solid var(--rw-line);
+  border-radius: var(--rw-radius);
+  background: rgba(73, 67, 76, 0.86);
+  box-shadow: none;
+}
+
+html[data-theme="light"] .page-home .card {
+  background: rgba(255, 250, 247, 0.82);
+}
+
+.page-home .card:hover {
+  border-color: var(--rw-blush);
+  box-shadow: 0 1rem 3rem rgba(16, 13, 19, 0.24);
+  transform: translateY(-2px);
+}
+
+.page-home .card-title,
+.page-home .card-title a {
+  color: var(--rw-cream);
+  font-family: var(--font-heading);
+}
+
+.page-home .card .card-meta,
+.page-home .card .card-description,
+.page-home .card p {
+  color: var(--rw-muted);
+}
+
+.page-home .home-topic-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.page-home .home-topic-list a {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rw-line);
+  border-radius: 0.8rem;
+  color: var(--rw-sage);
+  text-decoration: none;
+}
+
+.page-home .home-topic-list a:hover,
+.page-home .home-topic-list a:focus-visible {
+  border-color: var(--rw-sage);
+  background: rgba(169, 184, 156, 0.08);
+  color: var(--rw-cream);
+}
+
+.page-home .home-closing-note {
+  max-width: 42rem;
+  margin: 4rem auto 0;
+  color: var(--rw-lavender);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+/* Quieter reading experience on posts, feeds, and generated pages. */
+:not(.page-home) .post-content,
+:not(.page-home) article.blog-post {
+  color: var(--rw-cream);
+}
+
+:not(.page-home) .post-content {
+  max-width: 70ch;
+}
+
+:not(.page-home) .post-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--rw-cream);
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+/* Use the handwriting face for page titles, not smaller section headings. */
+:not(.page-home) .post-header h1,
+:not(.page-home) .feed-header h1 {
+  --font-display: "Playwrite VN", "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.3;
+  font-size: clamp(2.75rem, 5.5vw, 4.6rem);
+}
+
+:not(.page-home) .post-content blockquote {
+  border-left-color: var(--rw-blush);
+  color: var(--rw-blush);
+  --font-quote: "Kalam", cursive;
+  font-family: var(--font-quote);
+  font-size: 1.08em;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+:not(.page-home) .post-content pre {
+  border: 1px solid var(--rw-line);
+  border-radius: 0.8rem;
+  background: var(--rw-plum);
+}
+
+:not(.page-home) .post-content :is(img, figure) {
+  border-radius: 0.7rem;
+}
+
+:not(.page-home) .post-content figcaption {
+  color: var(--rw-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  border-top-color: var(--rw-line);
+  background: rgba(41, 38, 43, 0.82);
+}
+
+/* The embedded post layout has no block around its copy control. */
+.post-copy { display: none !important; }
+
+html[data-theme="light"] .site-footer {
+  background: rgba(255, 247, 243, 0.9);
+}
+
+@media (max-width: 700px) {
+  .page-home .home-main-content {
+    padding-inline: 1rem;
+  }
+
+  .page-home .feed .posts,
+  .page-home .feed .posts-list,
+  .page-home .feed.h-feed:not(.feed-layout-grid):not(.feed-layout-masonry) > .posts,
+  .page-home .feed.h-feed:not(.feed-layout-grid):not(.feed-layout-masonry) > .posts-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-home .home-topic-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Shared editorial bouquet: the image has a real transparent title cutout. */
+.rhiannon-logo {
+  --rw-cut-start: 50%;
+  --rw-cut-end: 75%;
+  position: relative;
+  isolation: isolate;
+  display: block;
+  flex: none;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.rhiannon-logo__flowers,
+.rhiannon-logo picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rhiannon-logo__flowers {
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 var(--rw-cut-start), transparent var(--rw-cut-start) var(--rw-cut-end), #000 var(--rw-cut-end) 100%);
+  mask-image: linear-gradient(to bottom, #000 0 var(--rw-cut-start), transparent var(--rw-cut-start) var(--rw-cut-end), #000 var(--rw-cut-end) 100%);
+}
+
+.rhiannon-logo__band {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: var(--rw-cut-start);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 25%;
+  min-height: 0;
+  margin: 0;
+  padding: 0.1em 0.5em;
+  background: transparent;
+  color: var(--rw-cream);
+}
+
+.rhiannon-logo__name {
+  display: block;
+  color: inherit;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.11em;
+  text-indent: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  -webkit-text-fill-color: currentColor;
+}
+
+.rhiannon-logo--hero {
+  width: min(100%, 1120px);
+  aspect-ratio: 3 / 2;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.rhiannon-logo--hero .rhiannon-logo__band {
+  left: 50%;
+  right: auto;
+  width: 100vw;
+  transform: translateX(-50%);
+}
+
+.rhiannon-logo--hero .rhiannon-logo__name {
+  font-family: "Playwrite VN", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.2rem, 7.2vw, 6.4rem);
+  font-weight: 300;
+  line-height: 1.25;
+  text-indent: 0;
+  text-transform: none;
+}
+
+/* Playwrite connects letters through contextual alternates. Markata's default
+   negative heading tracking pulls those strokes out of alignment. */
+.rhiannon-logo--hero .rhiannon-logo__name,
+:not(.page-home) .post-header h1,
+:not(.page-home) .feed-header h1 {
+  letter-spacing: normal;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "calt" 1;
+}
+
+.rhiannon-logo--compact {
+  --rw-cut-start: 49%;
+  --rw-cut-end: 81%;
+  width: clamp(176px, 17vw, 235px);
+  aspect-ratio: 3 / 2;
+}
+
+.rhiannon-logo--compact .rhiannon-logo__flowers {
+  object-fit: contain;
+}
+
+.rhiannon-logo--compact .rhiannon-logo__band {
+  height: 32%;
+  padding: 0.08em 0.2em;
+}
+
+.rhiannon-logo--compact .rhiannon-logo__name {
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  letter-spacing: 0.08em;
+}
+
+.site-header .container {
+  gap: clamp(0.4rem, 1.5vw, 1.5rem);
+}
+
+.page-home .home-hero {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  padding: clamp(1.5rem, 4vw, 4rem) 1rem clamp(2rem, 6vw, 5rem);
+}
+
+.page-home .home-hero::after { content: none; }
+
+html[data-theme="light"] .site-header,
+html[data-theme="light"] .site-footer {
+  color: var(--rw-cream);
+}
+
+html[data-theme="light"] .site-nav .nav-link,
+html[data-theme="light"] .theme-switcher button,
+html[data-theme="light"] .header-controls button {
+  color: var(--rw-cream);
+}
+
+html[data-theme="light"] .header-controls :is(input, button),
+html[data-theme="light"] .text-size-control select {
+  background-color: var(--rw-plum);
+  border-color: var(--rw-line);
+  color: var(--rw-cream);
+}
+
+@media (max-width: 700px) {
+  .rhiannon-logo--compact { width: 156px; }
+  .rhiannon-logo--compact .rhiannon-logo__name { font-size: 1.3rem; }
+  .rhiannon-logo--hero { width: min(125vw, 700px); max-width: none; }
+  .rhiannon-logo--hero .rhiannon-logo__name { font-size: clamp(2.3rem, 10vw, 3.5rem); }
+  .page-home .home-hero { min-height: 0; padding: 2rem 0 3rem; }
+}
