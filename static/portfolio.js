@@ -15,6 +15,14 @@
   }
   revealReadyImages();
   window.addEventListener("view-transition-complete", revealReadyImages);
+  const portfolioObserver = new MutationObserver((mutations) => {
+    const addedPortfolio = mutations.some(({ addedNodes }) => [...addedNodes].some((node) =>
+      node.nodeType === Node.ELEMENT_NODE &&
+      (node.matches?.(".portfolio") || node.querySelector?.(".portfolio"))
+    ));
+    if (addedPortfolio) requestAnimationFrame(revealReadyImages);
+  });
+  portfolioObserver.observe(document.body, { childList: true, subtree: true });
   document.addEventListener("load", (event) => {
     if (event.target instanceof HTMLImageElement) markLoaded(event.target);
   }, true);
