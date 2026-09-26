@@ -26,13 +26,13 @@ If this sounds at all interesting to you or even a hot mess express that you can
 ## Some Pictures
 _@waylon added these for later_
 
-![754573f7-f97a-4f47-919b-1bb577647713.png](https://dropper.wayl.one/file/754573f7-f97a-4f47-919b-1bb577647713.png)
+<figure><a href="https://dropper.wayl.one/file/754573f7-f97a-4f47-919b-1bb577647713.png"><img src="/images/about/rhiannon-portrait.webp" alt="Rhiannon smiling in a portrait" width="320" height="320" loading="lazy" decoding="async"></a></figure>
 
 
-![c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp](https://dropper.wayl.one/file/c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp)
+<figure><a href="https://dropper.wayl.one/file/c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp"><img src="/images/about/rhiannon-and-husband-restaurant.webp" alt="Rhiannon and her husband smiling together at a restaurant" width="960" height="722" loading="lazy" decoding="async"></a></figure>
 
-![d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png](https://dropper.wayl.one/file/d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png)
+<figure><a href="https://dropper.wayl.one/file/d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png"><img src="/images/about/rhiannon-and-husband-home.webp" alt="Rhiannon and her husband smiling together indoors" width="960" height="719" loading="lazy" decoding="async"></a></figure>
 
-![e0078b8d-7846-451b-8a59-40e1ef7925df.png](https://dropper.wayl.one/file/e0078b8d-7846-451b-8a59-40e1ef7925df.png)
+<figure><a href="https://dropper.wayl.one/file/e0078b8d-7846-451b-8a59-40e1ef7925df.png"><img src="/images/about/rhiannon-and-husband-sunset.webp" alt="Rhiannon and her husband outdoors at sunset" width="960" height="1280" loading="lazy" decoding="async"></a></figure>
 
-![781457d4-7642-4e36-a642-085e2d1273bc.jpg](https://dropper.wayl.one/file/781457d4-7642-4e36-a642-085e2d1273bc.jpg)
+<figure><a href="https://dropper.wayl.one/file/781457d4-7642-4e36-a642-085e2d1273bc.jpg"><img src="/images/about/rhiannon-and-husband-beach.webp" alt="Rhiannon and her husband smiling together at the beach" width="960" height="540" loading="lazy" decoding="async"></a></figure>

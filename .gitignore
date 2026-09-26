@@ -967,6 +967,8 @@ markout
 
 # markata-go build state and generated output
 .markata/
+.markata-css_minify-cache
+.markata-js_minify-cache
 output/
 static/markata-tailwind.css
 .agents

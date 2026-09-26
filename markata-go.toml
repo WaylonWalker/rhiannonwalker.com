@@ -149,7 +149,7 @@ sidebar = true
 
 [markata-go.feeds.formats]
 html = false
-simple_html = true
+simple_html = false
 rss = true
 atom = true
 json = true

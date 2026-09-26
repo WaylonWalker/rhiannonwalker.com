@@ -1,23 +1,34 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-palette="rhiannon-floral" data-aesthetic="minimal" data-fontpack="literary" data-text-size="large">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
+  <meta name="description" content="That page could not be found. Return to Rhiannon Walker's home page or browse the writing.">
   <title>Page not found | Rhiannon Walker</title>
-  <script>try { document.documentElement.dataset.theme = localStorage.getItem('color-mode') === 'light' ? 'light' : 'dark'; } catch (_) {}</script>
+  <script>
+    try {
+      var mode = localStorage.getItem('color-mode') === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = mode;
+      document.documentElement.dataset.palette = mode === 'light' ? 'rhiannon-floral-light' : 'rhiannon-floral';
+      var size = localStorage.getItem('text-size');
+      if (['small', 'medium', 'large', 'x-large'].includes(size)) document.documentElement.dataset.textSize = size;
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/palette.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/text-size.css">
   <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/palette-switcher.css">
+  <link rel="stylesheet" href="/css/search.css">
   <link rel="stylesheet" href="/custom.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body { min-height: 100vh; margin: 0; font-family: "Literata", Georgia, serif; }
-    .not-found-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 72rem; margin: auto; padding: 1rem; }
-    .not-found-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 1rem; }
-    .not-found-nav a { color: var(--rw-cream); }
-    .not-found-toggle { padding: .5rem .75rem; border: 1px solid var(--rw-line); border-radius: .5rem; background: var(--rw-plum); color: var(--rw-cream); cursor: pointer; }
+    body { min-height: 100vh; font-family: "Literata", Georgia, serif; }
     .not-found-main { width: min(100% - 2rem, 42rem); margin: clamp(3rem, 8vw, 8rem) auto; text-align: center; }
     .not-found-kicker { color: var(--rw-blush); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.7rem, 4vw, 2.5rem); }
-    h1 {
+    .not-found-main h1 {
       margin: .25rem 0 .5rem;
       padding-bottom: .7em;
       color: var(--rw-muted);
@@ -32,31 +43,65 @@
     }
     .not-found-main p { color: var(--rw-muted); font-size: 1.1rem; line-height: 1.7; }
     .not-found-main a { display: inline-block; margin-top: 1rem; padding: .75rem 1.25rem; border: 1px solid var(--rw-blush); border-radius: .5rem; }
-    @media (max-width: 600px) { .not-found-header { flex-wrap: wrap; justify-content: center; } .not-found-nav { justify-content: center; } }
+    .not-found-header .header-controls { margin-left: auto; }
+    @media (max-width: 700px) { .not-found-header .container { flex-wrap: wrap; justify-content: center; } .not-found-header .site-nav { order: 2; width: 100%; justify-content: center; } .not-found-header .header-controls { margin-left: 0; } }
   </style>
 </head>
 <body>
-  <header class="not-found-header">
-    <a class="rhiannon-logo rhiannon-logo--compact" href="/" aria-label="Rhiannon Walker — home">
-      <img class="rhiannon-logo__flowers" src="/images/rhiannon/flowers3-640.webp" alt="" width="640" height="427">
-      <span class="rhiannon-logo__band"><span class="rhiannon-logo__name">Rhiannon</span></span>
-    </a>
-    <nav class="not-found-nav" aria-label="Main navigation">
-      <a href="/">Home</a><a href="/about/">About</a><a href="/archive/">Archive</a><a href="/projects/">Projects</a>
-      <button class="not-found-toggle" type="button" aria-label="Toggle dark and light mode">Light / dark</button>
-    </nav>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header not-found-header">
+    <div class="container">
+      <a href="/" class="site-title">Rhiannon Walker</a>
+      <a class="rhiannon-logo rhiannon-logo--compact" href="/" aria-label="Rhiannon Walker — home">
+        <img class="rhiannon-logo__flowers" src="/images/rhiannon/flowers3-640.webp" alt="" width="640" height="427" decoding="async">
+        <span class="rhiannon-logo__band"><span class="rhiannon-logo__name">Rhiannon</span></span>
+      </a>
+      <nav class="site-nav site-nav--header site-nav--horizontal" aria-label="Main navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/archive/" class="nav-link">Archive</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+      </nav>
+      <div class="header-controls">
+        <div class="search-container search-container--navbar" id="search-container">
+          <div id="pagefind-search"></div>
+        </div>
+        <div class="theme-switcher theme-switcher--mode-only" data-pagefind-ignore>
+          <button class="palette-mode-toggle" type="button" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+            <span class="mode-icon" aria-hidden="true">
+              <svg class="mode-icon-moon" viewBox="0 0 24 24" width="18" height="18" focusable="false"><path d="M21 14.8A8.8 8.8 0 1 1 9.2 3a7.1 7.1 0 0 0 11.8 11.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <svg class="mode-icon-sun" viewBox="0 0 24 24" width="18" height="18" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+            </span>
+          </button>
+          <label class="text-size-control"><span class="sr-only">Text size</span>
+            <select class="text-size-select" data-text-size-control aria-label="Text size">
+              <option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option><option value="x-large">X-Large</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
   </header>
-  <main class="not-found-main">
+  <main class="not-found-main" id="main-content">
     <span class="not-found-kicker">A little lost?</span>
     <h1>Page not found</h1>
     <p>There isn't a page at this address. You can return home or browse the writing.</p>
     <a href="/">Return home</a>
   </main>
+  <script>window.__markataSearchEndpoint = '/api/search';</script>
+  <script src="/js/bleve-search.js" defer></script>
   <script>
-    document.querySelector('.not-found-toggle').addEventListener('click', function () {
+    document.querySelector('.palette-mode-toggle').addEventListener('click', function () {
       var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
       document.documentElement.dataset.theme = next;
+      document.documentElement.dataset.palette = next === 'light' ? 'rhiannon-floral-light' : 'rhiannon-floral';
       try { localStorage.setItem('color-mode', next); } catch (_) {}
+    });
+    var sizeControl = document.querySelector('[data-text-size-control]');
+    sizeControl.value = document.documentElement.dataset.textSize || 'large';
+    sizeControl.addEventListener('change', function () {
+      document.documentElement.dataset.textSize = sizeControl.value;
+      try { localStorage.setItem('text-size', sizeControl.value); } catch (_) {}
     });
   </script>
 </body>
