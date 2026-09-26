@@ -727,3 +727,97 @@ html[data-theme="light"] .text-size-control select {
   .rhiannon-logo--hero .rhiannon-logo__name { font-size: clamp(2.3rem, 10vw, 3.5rem); }
   .page-home .home-hero { min-height: 0; padding: 2rem 0 3rem; }
 }
+
+/* Portfolio: full-bleed editorial masonry grid, markdown-only.
+   No special template needed — the page is a ::: portfolio-grid container
+   of markdown images; a caption line directly after an image (no blank
+   line) becomes figcaption automatically. Captions reveal on hover.
+   The grid breaks out of the narrow reading column to full viewport
+   width (same technique as the theme's img.full-width); any prose
+   stays at reading width. */
+.portfolio-grid {
+  width: 100vw;
+  max-width: 100vw;
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: clamp(0.5rem, 2vw, 2rem);
+  columns: 2;
+  column-gap: clamp(0.45rem, 1vw, 0.9rem);
+}
+
+.portfolio-grid figure {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(0.45rem, 1vw, 0.9rem);
+  overflow: hidden;
+  border: 1px solid var(--rw-line-soft);
+  border-radius: 0.8rem;
+  background: var(--rw-plum);
+  break-inside: avoid;
+}
+
+.portfolio-grid figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 220ms ease;
+}
+
+.portfolio-grid figure:hover img {
+  transform: scale(1.03);
+}
+
+.portfolio-grid figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.2rem 1rem 0.9rem;
+  background: linear-gradient(180deg, transparent, rgba(22, 18, 24, 0.88));
+  color: var(--rw-image-text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.portfolio-grid figcaption p {
+  margin: 0;
+}
+
+.portfolio-grid figure:hover figcaption {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 700px) {
+  .portfolio-grid { columns: 3; }
+}
+
+@media (min-width: 1100px) {
+  .portfolio-grid { columns: 4; }
+}
+
+@media (min-width: 1600px) {
+  .portfolio-grid { columns: 5; }
+}
+
+@media (hover: none) {
+  .portfolio-grid figcaption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-grid figure img,
+  .portfolio-grid figcaption { transition: none; }
+  .portfolio-grid figure:hover img { transform: none; }
+}

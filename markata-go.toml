@@ -63,6 +63,10 @@ url = "/archive/"
 label = "Projects"
 url = "/projects/"
 
+[[markata-go.nav]]
+label = "Portfolio"
+url = "/portfolio/"
+
 # Keep root subscriptions without letting the implicit HTML feed replace
 # pages/index.md at /index.html.
 [[markata-go.feeds]]
@@ -160,6 +164,10 @@ enabled = false
 
 [markata-go.encryption]
 decryption_hint = "DM me for access"
+# The portfolio password is short and memorable for sharing with clients,
+# so strength enforcement is off. Keys are still required — this only
+# skips the length/crack-time policy checks.
+enforce_strength = false
 
 [markata-go.encryption.private_tags]
 "daily-note" = "default"
