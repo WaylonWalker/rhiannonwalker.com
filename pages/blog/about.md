@@ -26,7 +26,7 @@ If this sounds at all interesting to you or even a hot mess express that you can
 ## Some Pictures
 _@waylon added these for later_
 
-::: wa-carousel
+::: wa-carousel {navigation="true" pagination="true"}
 ![754573f7-f97a-4f47-919b-1bb577647713.png](https://dropper.wayl.one/file/754573f7-f97a-4f47-919b-1bb577647713.png)
 
 ![61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp](https://dropper.wayl.one/file/61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp)
