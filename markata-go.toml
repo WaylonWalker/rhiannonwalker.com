@@ -11,6 +11,7 @@ author = "Rhiannon Walker"
 author_url = "https://rhiannonwalker.com"
 language = "en"
 license = false
+fontpack = "literary"
 output_dir = "output"
 assets_dir = "static"
 templates_dir = "templates-go"
@@ -54,10 +55,6 @@ url = "/"
 [[markata-go.nav]]
 label = "About"
 url = "/about/"
-
-[[markata-go.nav]]
-label = "Archive"
-url = "/archive/"
 
 [[markata-go.nav]]
 label = "Projects"
@@ -152,15 +149,26 @@ items_per_page = 20
 sidebar = true
 
 [markata-go.feeds.formats]
-html = false
+html = true
 simple_html = false
 rss = true
 atom = true
 json = true
 sitemap = true
 
+[markata-go.feeds.templates]
+html = "feed-pins.html"
+
 [markata-go.components.share]
 enabled = false
+
+[[markata-go.components.footer.links]]
+label = "All posts"
+url = "/archive/"
+
+[[markata-go.components.footer.links]]
+label = "Blog"
+url = "/tags/blog/"
 
 [markata-go.encryption]
 decryption_hint = "DM me for access"

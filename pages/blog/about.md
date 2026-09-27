@@ -23,6 +23,8 @@ Just when you thought that was enough for anyone to tackle, well, we purchased o
 
 If this sounds at all interesting to you or even a hot mess express that you can't look away from, well follow along!
 
+See [All Posts](/archive)
+
 ## Some Pictures
 _@waylon added these for later_
 

@@ -1,0 +1,16 @@
+{% extends "post.html" %}
+
+{% block body_class %}page-404{% endblock %}
+{% block page_wrapper_class %} page-wrapper--feed-only page-wrapper--404{% endblock %}
+
+{% block content %}
+<section class="not-found-main" aria-labelledby="not-found-title">
+  <p class="not-found-kicker">One breath at a time</p>
+  <h1 id="not-found-title">That page could not be found.</h1>
+  <p>Return to Rhiannon Walker's home page or browse the writing.</p>
+  <p>
+    <a href="/">Return home</a> · <a href="/archive/">Browse writing</a>
+  </p>
+  <div class="pins-content">{{ body | safe }}</div>
+</section>
+{% endblock %}

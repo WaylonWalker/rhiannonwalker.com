@@ -1,0 +1,33 @@
+{% extends "embedded:feed.html" %}
+
+{% block body_class %}page-pins{% endblock %}
+{% block page_wrapper_class %} page-wrapper--feed-only page-wrapper--pins{% endblock %}
+
+{% block content %}
+<div class="feed h-feed feed--pins">
+  <header class="feed-header">
+    <h1 class="p-name">{{ feed.title }}</h1>
+    {% if feed.description %}<p class="p-summary">{{ feed.description }}</p>{% endif %}
+  </header>
+
+  {% if config.author %}
+  <div class="feed-author-card p-author h-card visually-hidden">
+    <a class="u-url u-uid p-name" href="{{ config.url }}" rel="author">{{ config.author }}</a>
+  </div>
+  {% endif %}
+
+  {% if page.posts %}
+  <div class="pins-grid" id="posts-list">
+    {% if page.pagination_type == "js" %}{% for post in feed.posts %}
+    {% include "components/pin-card.html" %}
+    {% endfor %}{% else %}{% for post in page.posts %}
+    {% include "components/pin-card.html" %}
+    {% endfor %}{% endif %}
+  </div>
+  {% else %}
+  <p>No pins yet.</p>
+  {% endif %}
+
+  {% if page.total_pages > 1 %}{% include "partials/pagination.html" %}{% endif %}
+</div>
+{% endblock %}
