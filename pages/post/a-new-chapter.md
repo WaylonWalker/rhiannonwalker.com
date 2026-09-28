@@ -9,7 +9,7 @@ slug: a-new-chapter
 template: post
 ---
 
-Everything you read under this post was wrote during a time of fear, uncertainty, and trying to be the best mom/wife I could be through the choas.  Who am I kidding, I'm still trying.
+Everything you read under this post was wrote during a time of fear, uncertainty, and trying to be the best mom/wife I could be through the chaos.  Who am I kidding, I'm still trying.
 
 Life has been going pretty great though and I truly have no complaints. Other than my body needing a day of rest, while my brain has an entire list of things I want to accomplish. 
 
