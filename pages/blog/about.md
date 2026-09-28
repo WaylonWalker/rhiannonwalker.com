@@ -29,15 +29,15 @@ See [All Posts](/archive)
 _@waylon added these for later_
 
 ::: wa-carousel {navigation="true" pagination="true"}
-![754573f7-f97a-4f47-919b-1bb577647713.png](https://dropper.wayl.one/file/754573f7-f97a-4f47-919b-1bb577647713.png)
+![Rhiannon smiling in a close-up portrait against a blue and purple background](https://dropper.waylonwalker.com/file/754573f7-f97a-4f47-919b-1bb577647713.png)
 
-![61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp](https://dropper.wayl.one/file/61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp)
+![Rhiannon, her husband, and a child smiling together indoors](https://dropper.waylonwalker.com/file/61f42b51-2953-4a11-a2b5-ec39f92d73c0.webp)
 
-![c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp](https://dropper.wayl.one/file/c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp)
+![Rhiannon and her husband smiling for a selfie in a restaurant](https://dropper.waylonwalker.com/file/c4c2bf73-c3d4-4373-b1a3-e769122a67a5.webp)
 
-![d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png](https://dropper.wayl.one/file/d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png)
+![Rhiannon and her husband smiling for a selfie at home](https://dropper.waylonwalker.com/file/d5fbc521-7bb3-4bcb-a689-d7fde98d0cf2.png)
 
-![e0078b8d-7846-451b-8a59-40e1ef7925df.png](https://dropper.wayl.one/file/e0078b8d-7846-451b-8a59-40e1ef7925df.png)
+![Rhiannon and her husband smiling together by a pond at sunset](https://dropper.waylonwalker.com/file/e0078b8d-7846-451b-8a59-40e1ef7925df.png)
 
-![781457d4-7642-4e36-a642-085e2d1273bc.jpg](https://dropper.wayl.one/file/781457d4-7642-4e36-a642-085e2d1273bc.jpg)
+![Rhiannon and her husband wearing sunglasses on a sunny beach](https://dropper.waylonwalker.com/file/781457d4-7642-4e36-a642-085e2d1273bc.jpg)
 :::

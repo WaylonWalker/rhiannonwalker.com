@@ -10,20 +10,23 @@
    Loaded after Markata-Go's generated theme styles. */
 
 :root {
-  --rw-ink: #514c61;
-  --rw-night: #5c576e;
-  --rw-plum: #6c657b;
-  --rw-cream: #fff8f7;
-  --rw-muted: #eee5ec;
-  --rw-blush: #ffe0e9;
-  --rw-peach: #ffe1d0;
-  --rw-sage: #d7ead9;
-  --rw-lavender: #e6dcf6;
-  --rw-gold: #f3dba7;
-  --rw-title-block: #fff8f7;
-  --rw-image-text: #fff8f4;
-  --rw-line: color-mix(in srgb, var(--rw-cream) 30%, transparent);
-  --rw-line-soft: color-mix(in srgb, var(--rw-cream) 18%, transparent);
+  --rw-ink: #231a25;
+  --rw-night: #2e2233;
+  --rw-plum: #3b2d42;
+  --rw-cream: #fdf2ec;
+  --rw-muted: #c4b0bb;
+  --rw-blush: #f2a5bf;
+  --rw-peach: #f0b48e;
+  --rw-sage: #a9d3ae;
+  --rw-lavender: #c9b3ec;
+  --rw-gold: #e8c87a;
+  --rw-title-block: #fdf2ec;
+  --rw-image-text: #fdf2ec;
+  --rw-line: color-mix(in srgb, var(--rw-cream) 16%, transparent);
+  --rw-line-soft: color-mix(in srgb, var(--rw-cream) 9%, transparent);
+  --rw-page-wash: linear-gradient(145deg, #231a25, #2e2233 52%, #231a25);
+  --rw-dot-strong: 22%;
+  --rw-dot-soft: 12%;
   --rw-radius: 1.25rem;
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Literata", Georgia, serif;
@@ -49,6 +52,9 @@ html[data-theme="light"] {
   --rw-title-block: #fff8f2;
   --rw-line: rgba(43, 32, 43, 0.18);
   --rw-line-soft: rgba(43, 32, 43, 0.1);
+  --rw-page-wash: linear-gradient(145deg, #fffaf6, #f8edf1 52%, #fff8ef);
+  --rw-dot-strong: 22%;
+  --rw-dot-soft: 13%;
 }
 
 html,
@@ -57,25 +63,43 @@ body {
   color: var(--rw-cream);
 }
 
-html[data-theme="light"] body {
-  background-image:
-    radial-gradient(circle at 14% 18%, rgba(182, 166, 216, 0.18) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 82% 12%, rgba(243, 149, 179, 0.2) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 67% 72%, rgba(166, 189, 146, 0.16) 0 1px, transparent 1.5px),
-    linear-gradient(145deg, #fffaf6, #f8edf1 52%, #fff8ef);
-}
-
 body {
+  /* A hand-scattered starfield: two large tiles of irregular dots in mixed
+     floral hues. The tiles are different sizes (37x33rem vs 29x43rem) so the
+     repeat interval is enormous and the eye never catches the grid. Dot
+     colors ride the theme variables, so one rule serves both modes. */
   background-image:
-    radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--rw-lavender) 15%, transparent) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--rw-peach) 15%, transparent) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 67% 72%, color-mix(in srgb, var(--rw-blush) 13%, transparent) 0 1px, transparent 1.5px),
-    linear-gradient(145deg, var(--rw-ink), var(--rw-night) 52%, var(--rw-ink));
-  background-size: 11rem 13rem, 17rem 19rem, 23rem 21rem, auto;
-}
-
-body.page-home {
-  background-size: 5.5rem 7rem, 8rem 9.5rem, 11rem 12.5rem, auto;
+    radial-gradient(circle at 6% 9%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-strong), transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 27% 5%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 48% 14%, color-mix(in srgb, var(--rw-blush) var(--rw-dot-strong), transparent) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 73% 7%, color-mix(in srgb, var(--rw-sage) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 90% 19%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 14% 41%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-strong), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 55% 44%, color-mix(in srgb, var(--rw-gold) var(--rw-dot-soft), transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 82% 39%, color-mix(in srgb, var(--rw-blush) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 30% 68%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-soft), transparent) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 63% 64%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-strong), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 8% 88%, color-mix(in srgb, var(--rw-blush) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 45% 90%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-strong), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 71% 92%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-soft), transparent) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 93% 82%, color-mix(in srgb, var(--rw-blush) var(--rw-dot-strong), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 11% 6%, color-mix(in srgb, var(--rw-sage) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 58% 11%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-strong), transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 32% 47%, color-mix(in srgb, var(--rw-blush) var(--rw-dot-strong), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 74% 55%, color-mix(in srgb, var(--rw-gold) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 12% 80%, color-mix(in srgb, var(--rw-peach) var(--rw-dot-strong), transparent) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 55% 76%, color-mix(in srgb, var(--rw-sage) var(--rw-dot-soft), transparent) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 88% 88%, color-mix(in srgb, var(--rw-lavender) var(--rw-dot-soft), transparent) 0 1.4px, transparent 2px),
+    var(--rw-page-wash);
+  background-size:
+    37rem 33rem, 37rem 33rem, 37rem 33rem, 37rem 33rem,
+    37rem 33rem, 37rem 33rem, 37rem 33rem, 37rem 33rem,
+    37rem 33rem, 37rem 33rem, 37rem 33rem, 37rem 33rem,
+    37rem 33rem, 37rem 33rem,
+    29rem 43rem, 29rem 43rem, 29rem 43rem, 29rem 43rem,
+    29rem 43rem, 29rem 43rem, 29rem 43rem, 29rem 43rem,
+    auto;
 }
 
 a {
@@ -160,13 +184,25 @@ html[data-theme="light"] .page-home .home-hero {
 }
 
 .page-home .home-hero::before {
-  width: 0.12rem;
-  height: 0.12rem;
-  top: 18%;
-  left: 12%;
-  background: var(--rw-peach);
-  box-shadow: 21vw 8vh 0 0 var(--rw-lavender), 35vw 2vh 0 0 var(--rw-cream), 72vw 16vh 0 0 var(--rw-sage), 84vw 42vh 0 0 var(--rw-peach), 8vw 48vh 0 0 var(--rw-lavender);
-  opacity: 0.55;
+  width: 0.14rem;
+  height: 0.14rem;
+  top: 16%;
+  left: 9%;
+  background: transparent;
+  box-shadow:
+    4vw 6vh 0 0 color-mix(in srgb, var(--rw-peach) 55%, transparent),
+    19vw 22vh 0 0 color-mix(in srgb, var(--rw-lavender) 50%, transparent),
+    33vw 5vh 0 0 color-mix(in srgb, var(--rw-cream) 42%, transparent),
+    47vw 14vh 0 0 color-mix(in srgb, var(--rw-sage) 48%, transparent),
+    62vw 4vh 0 0 color-mix(in srgb, var(--rw-blush) 52%, transparent),
+    74vw 19vh 0 0 color-mix(in srgb, var(--rw-gold) 45%, transparent),
+    86vw 9vh 0 0 color-mix(in srgb, var(--rw-peach) 50%, transparent),
+    11vw 44vh 0 0 color-mix(in srgb, var(--rw-lavender) 45%, transparent),
+    28vw 38vh 0 0 color-mix(in srgb, var(--rw-sage) 42%, transparent),
+    68vw 40vh 0 0 color-mix(in srgb, var(--rw-blush) 46%, transparent),
+    90vw 44vh 0 0 color-mix(in srgb, var(--rw-cream) 40%, transparent),
+    55vw 30vh 0 0 color-mix(in srgb, var(--rw-gold) 42%, transparent);
+  opacity: 0.8;
 }
 
 .page-home .home-feeds {
@@ -304,13 +340,17 @@ html[data-theme="light"] .page-home .card {
   font-size: clamp(2.75rem, 5.5vw, 4.6rem);
 }
 
-/* Let the script measure the title against the space beside the byline. */
+/* Leave room for the built-in title fitter beside the byline. */
 :not(.page-home) .post-header__title-row > h1 {
   min-width: 0;
 }
 
-html.title-fit-enabled .post-header__title-row > h1:not([data-title-fitted]) {
-  visibility: hidden;
+:not(.page-home) .post-header h1[data-title-size="long"] {
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+}
+
+:not(.page-home) .post-header h1[data-title-size="very-long"] {
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
 }
 
 :not(.page-home) .post-content blockquote {
@@ -521,20 +561,20 @@ html[data-theme="light"] .text-size-control select {
 }
 
 /* A small gallery: the photograph stays primary until hover or keyboard focus. */
-.feed--shots > .feed-header {
+.feed--photo-grid > .feed-header {
   display: grid;
   justify-items: center;
   margin-bottom: clamp(1.5rem, 4vw, 3rem);
   text-align: center;
 }
 
-.feed--shots > .feed-header h1 {
+.feed--photo-grid > .feed-header h1 {
   width: fit-content;
   margin-inline: auto;
   text-align: center;
 }
 
-.feed--shots > .feed-header h1::after { margin-inline: auto; }
+.feed--photo-grid > .feed-header h1::after { margin-inline: auto; }
 
 .feed.h-feed.feed--photo-grid > .posts.posts-list.posts-list--photo-grid {
   --photo-grid-columns: 2;
