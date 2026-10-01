@@ -1,16 +1,12 @@
 ---
-template: "link"
-url: "https://bastardica.mitpit.com/"
-image: "https://bastardica.mitpit.com/scr2.png"
-title: "Bastardica"
+title: Bastardica
 date: 2026-09-30T21:09:30Z
-published: true
+published: false
 draft: false
 tags: []
-description: "A type foundry for bastard web fonts."
-
+description: A type foundry for bastard web fonts.
+template: link
+image: "https://bastardica.mitpit.com/scr2.png"
+url: "https://bastardica.mitpit.com/"
 ---
 
-Oh this is such a sick way to make a cool fontpack of random fonts.
-
-![ea2ed5de-f4a1-4006-acc5-298b679a8fa0.webp](https://dropper.waylonwalker.com/file/ea2ed5de-f4a1-4006-acc5-298b679a8fa0.webp)
